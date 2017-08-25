@@ -16,7 +16,5 @@ use Telegram\Bot\Api;
 
 $telegram = new Api('323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg');
 
-$response = $telegram->getMe();
 
-echo($response);
 ?>
