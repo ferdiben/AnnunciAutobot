@@ -15,7 +15,7 @@ foreach($c as $doc){
 use Telegram\Bot\Api;
 
 $telegram = new Api('323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg');
-$response = "vaffanculo";
+$response = $telegram->sendMessage("ciaoooooo");
 echo($response);
 $botId = $response->getId();
 $firstName = $response->getFirstName();
