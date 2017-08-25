@@ -5,7 +5,7 @@ $client = new MongoClient (
 					   $b = $a->Auto;
 					   $c =$b->find();
 foreach($c as $doc){
-       var_dump($doc);    
+       echo($doc['marca']);    
 }
     
 ?>
