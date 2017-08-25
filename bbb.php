@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 require 'vendor/autoload.php';
-$client = new Mongo ( 
+$client = new MongoClient ( 
     'mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
                        $a = $client->annunciauto;
 					   $b = $a->Auto;
@@ -13,11 +13,10 @@ foreach($c as $doc){
     
 
 use Telegram\Bot\Api;
-use GuzzleHttp\Client;
 
 $telegram = new Api('323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg');
 $response = $telegram->getMe();
-
+echo($response);
 $botId = $response->getId();
 $firstName = $response->getFirstName();
 $username = $response->getUsername();
