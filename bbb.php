@@ -6,6 +6,8 @@ $client = new MongoClient (
                        $a = $client->annunciauto;
 					   $b = $a->Auto;
 					   $c =$b->find();
-       var_dump(iterator_to_array($c));    
+foreach($c as $doc){
+       echo(iterator_to_array($doc));    
+}
     
 ?>
