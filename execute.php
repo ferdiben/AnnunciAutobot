@@ -27,7 +27,7 @@ header("Content-Type: application/json");
 // la mia risposta è un array JSON composto da chat_id, text, method
 // chat_id mi consente di rispondere allo specifico utente che ha scritto al bot
 // text è il testo della risposta
-$parameters = array('chat_id' => $chatId, "text" => $text);
+$parameters = array('chat_id' => $chatId, "text" => "arrivederci");
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
 // converto e stampo l'array JSON sulla response
