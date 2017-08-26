@@ -30,17 +30,15 @@ header("Content-Type: application/json");
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 ;
 // converto e stampo l'array JSON sulla response
-echo json_encode($parameters);
 
 if($text == "ciao"){
     $parameters = array('chat_id' => $chatId, "text" => "ciao");
+    $parameters["method"] = "sendMessage";
+echo json_encode($parameters);
+
 
 } 
 
-$parameters["method"] = "sendMessage";
-$parameters = array('chat_id' => $chatId, "text" => "arrivederci");
-
-$parameters["method"] = "sendMessage"
 
 
 
