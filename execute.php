@@ -32,7 +32,7 @@ header("Content-Type: application/json");
 // converto e stampo l'array JSON sulla response
 
 if($text == "ciao"){
-    $parameters = array('chat_id' => $chatId, "text" => "ciao");
+    $parameters = array('chat_id' => $chatId, "text" => "ciao".$username);
     $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 
