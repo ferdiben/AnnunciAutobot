@@ -3,16 +3,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-try
-{
+
     $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
     $database   = $connection->selectDB('annunciauto');
     $collection = $database->selectCollection('Marche_Modelli');
-}
-catch(MongoConnectionException $e)
-{
-    die("Failed to connect to database ".$e->getMessage());
-}
+
 
 // recupero il contenuto inviato da Telegram
 $content = file_get_contents("php://input");
