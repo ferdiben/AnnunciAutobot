@@ -59,7 +59,7 @@ foreach ($cursor as $key) {
 }
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [$marche[]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [$marche[$i]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
