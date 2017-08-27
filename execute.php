@@ -46,7 +46,7 @@ foreach ($cursor as $key) {
   $i++;
 }
 $r = "jasf";
-$f = json_encode(array($marche));
+$f = json_encode($marche);
 
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
