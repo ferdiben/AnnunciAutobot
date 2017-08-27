@@ -46,11 +46,10 @@ $cursor = $collection->find();
 foreach ($cursor as $key) {
     $marche[$i] = $key['marca'];
   $i++;
-  var_dump($marche);
 }
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["hhh"], ["fff"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["ccc"], ["fff"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
