@@ -46,7 +46,13 @@ $parameters = array('chat_id' => $chatId, "text" => $text);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
 
-
+$i = 0;
+$cursor = $collection->find();
+foreach ($cursor as $key) {
+    $marche[$i] = $key['marca'];
+  $i++;
+  var_dump($marche);
+}
 
 // imposto la keyboard
 $parameters["reply_markup"] = '{ "keyboard": [["hhh"], ["fff"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
