@@ -45,13 +45,13 @@ foreach ($cursor as $key) {
     $marche[$i] = $key['marca'];
   $i++;
 }
-
+$r = "jasf";
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["fff"], ["ssss"], [$marche[1]]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["fff"], ["ssss"], [$r], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
