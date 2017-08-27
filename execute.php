@@ -45,7 +45,7 @@ foreach ($cursor as $key) {
     $marche[$i] = json_encode($key['marca']);
   $i++;
 }
-$r = array(array("jasf", "sss")));
+$r = array("jasf", "sss");
 $f = json_encode(array($marche));
 
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
