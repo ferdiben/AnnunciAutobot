@@ -42,7 +42,7 @@ $parameters["method"] = "sendMessage";
 
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["ddd"], ["fff"]];, "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["ddd"], ["fff"], ["tre"], ["quattro"]];, "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
