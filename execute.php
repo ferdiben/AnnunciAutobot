@@ -45,7 +45,7 @@ foreach ($cursor as $key) {
     $marche[$i] = json_encode($key['marca']);
   $i++;
 }
-$r = array("jasf", "sss");
+$r = "jasf";
 $f = json_encode(array($marche));
 
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
@@ -53,7 +53,7 @@ $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
 $parameters["method"] = "sendMessage";
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [$r], "one_time_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [[".$r."]], "one_time_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
