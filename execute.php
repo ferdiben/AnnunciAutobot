@@ -44,12 +44,12 @@ $parameters["method"] = "sendMessage";
 $i = 0;
 $cursor = $collection->find();
 foreach ($cursor as $key) {
-    $marche[$i] = "[".$key['marca']."]";
+    $marche[$i] = $key['marca'];
   $i++;
 }
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [$marche], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [[$marche[1]], ["fff"], [ssss"], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
