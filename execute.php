@@ -49,7 +49,7 @@ foreach ($cursor as $key) {
 }
 
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["$key['marca']"], ["fff"], ["ssss"], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": ["fff"], ["ssss"], [$key['marca']]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
