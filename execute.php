@@ -50,7 +50,9 @@ $parameters["method"] = "sendMessage";
 $i=0;
 foreach ($cursor['marca'] as $key) {
     $marche[$i] += $key;
+    echo($marche[i]);
   $i++;
+    
 }
 
 // imposto la keyboard
