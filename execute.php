@@ -51,7 +51,7 @@ $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
 $parameters["method"] = "sendMessage";
 
 // imposto la keyboard
-$parameters[] = '{ "keyboard": [["fff"], ["ssss"], ["dff], "one_time_keyboard": true}';
+$parameters["reply_markup"] = '{ "keyboard": [["fff"], ["ssss"], ["dff"], $marche[1]], "one_time_keyboard": true}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
