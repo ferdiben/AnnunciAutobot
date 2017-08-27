@@ -37,9 +37,7 @@ header("Content-Type: application/json");
 // la mia risposta è un array JSON composto da chat_id, text, method
 // chat_id mi consente di rispondere allo specifico utente che ha scritto al bot
 // text è il testo della risposta
-$parameters = array('chat_id' => $chatId, "text" => $text);
-// method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
-$parameters["method"] = "sendMessage";
+
 
 $i = 0;
 $cursor = $collection->find();
@@ -48,8 +46,12 @@ foreach ($cursor as $key) {
   $i++;
 }
 
+$parameters = array('chat_id' => $chatId, "text" => $marche[1]);
+// method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
+$parameters["method"] = "sendMessage";
+
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["fff"], ["ssss"], ["$marche[1]"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["fff"], ["ssss"], ["ffff"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
