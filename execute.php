@@ -1,4 +1,20 @@
 <?php
+
+try
+{
+    $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
+    $database   = $connection->selectDB('annunciauto');
+    $collection = $database->selectCollection('Marche_Modelli');
+}
+catch(MongoConnectionException $e)
+{
+    die("Failed to connect to database ".$e->getMessage());
+}
+
+$cursor = $collection->find();
+
+
+
 // recupero il contenuto inviato da Telegram
 $content = file_get_contents("php://input");
 // converto il contenuto da JSON ad array PHP
@@ -30,8 +46,15 @@ header("Content-Type: application/json");
 $parameters = array('chat_id' => $chatId, "text" => $text);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
+
+$i=0;
+foreach ($cursor['marca'] as $key) {
+    $marche[$i] += $key;
+  $i++;
+}
+
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"],["ciaociao"], ["mashjhskjdf"], ["uqwojaf"], ["basbhj"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": $marche[], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
