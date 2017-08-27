@@ -50,7 +50,7 @@ $parameters["method"] = "sendMessage";
 $i=0;
 foreach ($cursor['marca'] as $key) {
     $marche[$i] += $key;
-    echo($marche[i]);
+    echo($marche[$i]);
   $i++;
     
 }
