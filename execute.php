@@ -3,9 +3,16 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-
-
-
+try
+{
+    $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
+    $database   = $connection->selectDB('annunciauto');
+    $collection = $database->selectCollection('Marche_Modelli');
+}
+catch(MongoConnectionException $e)
+{
+    die("Failed to connect to database ".$e->getMessage());
+}
 
 // recupero il contenuto inviato da Telegram
 $content = file_get_contents("php://input");
@@ -39,7 +46,12 @@ $parameters = array('chat_id' => $chatId, "text" => $text);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
 
-
+$i = 0;
+$cursor = $collection->find();
+foreach ($cursor as $key) {
+    $marche[$i] = $key['marca'];
+  $i++
+}
 
 // imposto la keyboard
 $parameters["reply_markup"] = '{ "keyboard": [["ddd"], ["fff"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
