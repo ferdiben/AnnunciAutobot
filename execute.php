@@ -20,7 +20,7 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 $text = strtolower($text);
-
+$encodedMarkup = '';
 $replyMarkup = array(
     'keyboard' => array(
         array("A", "B")
@@ -33,6 +33,9 @@ $parameters = array(
     'text' => "Test"
 );
 $parameters["method"] = "sendMessage";
+
+
+
 echo json_encode($parameters);
 
 ?>
