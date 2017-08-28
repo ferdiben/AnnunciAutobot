@@ -64,7 +64,7 @@ $keyboradsValue = array(
    array("button 1","button 2"),
    array("button 3","button 4"),
 );
-$parameters = array(
+$replyMarkup = array(
   'keyboard' => $keyboradsValue,
   'force_reply' => true,
   'selective' => true
@@ -74,6 +74,8 @@ $parameters["method"] = "sendMessage";
 
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
+echo json_encode($replyMarkup, true);
+
 
 
 ?>
