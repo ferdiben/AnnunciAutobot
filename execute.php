@@ -47,7 +47,10 @@ foreach ($cursor as $key) {
 }
 $r = "jasf";
 $f = json_encode(array($marche));
-
+ $arr = array('a' => $marche[0], 'b' => $marche[1], 'c' => $marche[2], 'd' => $marche[3]);
+//$data = json_encode($arr);
+ 
+echo $data;
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
@@ -55,7 +58,7 @@ $myObj->keyboard = $marche;
 $myObj->one_time_keyboard = false;
 $param = json_encode($myObj);
 // imposto la keyboard
-$parameters["reply_markup"] = $param;
+$parameters["reply_markup"] = '{ "keyboard":[$arr], one_time_keyboard: false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
