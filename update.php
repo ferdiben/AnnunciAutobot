@@ -31,7 +31,7 @@ $parameters = array('chat_id' => $chatId, "text" => $text);
 // method è il metodo per l'invio di un messaggio (cfr. API di Telegram)
 $parameters["method"] = "sendMessage";
 // imposto la keyboard
-$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
+$parameters["reply_markup"] = '{ "keyboard": [["uno"], ["otto"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
