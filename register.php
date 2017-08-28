@@ -1,7 +1,7 @@
 <?php
 
 // PARAMETRI DA MODIFICARE
-$WEBHOOK_URL = 'https://annunciautobot.herokuapp.com/execute.php';
+$WEBHOOK_URL = 'https://annunciautobot.herokuapp.com/update.php';
 $BOT_TOKEN = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
