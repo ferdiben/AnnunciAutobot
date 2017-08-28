@@ -58,7 +58,7 @@ $myObj->keyboard = $marche;
 $myObj->one_time_keyboard = false;
 $param = json_encode($myObj);
 // imposto la keyboard
-$parameters["reply_markup"] = $data;
+$parameters["reply_markup"] = $param;
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
