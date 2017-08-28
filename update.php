@@ -30,6 +30,6 @@ $option = array(
     //Third row
     array($telegram->buildKeyboardButton("Button 6")) );
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "This is a Keyboard Test");
+$content = array('chat_id' => $chat_id, 'text' => "This is a Keyboard Test");
 $telegram->sendMessage($content);
 }
