@@ -29,11 +29,11 @@ $list=array("A", "B", "C");
 $response="Choose:";
 global $bottoken;
 $replyMarkup = array(
-    'keyboard' => $list,
+    'keyboard' => $list
 );
 $encodedMarkup = json_encode($replyMarkup);
 
-$parameters = array('chat_id' => $chatId, 'text' => $response);
+$parameters = array('chat_id' => $chatId, 'text' => $response, 'reply_markup' => $encodedMarkup);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 
