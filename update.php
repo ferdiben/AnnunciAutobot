@@ -34,5 +34,5 @@ $parameters["method"] = "sendMessage";
 $parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quattro"]], "one_time_keyboard": false}';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
-}
+
 ?>
