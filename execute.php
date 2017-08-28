@@ -29,7 +29,7 @@ $list=array("A", "B", "C");
 $response="Choose:";
 global $bottoken;
 $replyMarkup = array(
-    'keyboard' => list,
+    'keyboard' => $list,
 );
 $encodedMarkup = json_encode($replyMarkup);
 
