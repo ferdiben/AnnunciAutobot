@@ -47,8 +47,11 @@ foreach ($cursor as $key) {
 }
 $r = "jasf";
 $f = json_encode(array($marche));
- $arr = array('keyboard' => $marche, 'one_time_keyboard' => false);
+ $arr = array('keyboard' => $marche);
 $data = json_encode($arr);
+
+$arr1 = array('one_time_keyboard' => false);
+$data1 = json_encode($arr);
  
 //echo $data;
 $parameters = array('chat_id' => $chatId, "text" => $marche[1]);
@@ -58,7 +61,7 @@ $myObj->keyboard = $marche;
 $myObj->one_time_keyboard = false;
 $param = json_encode($myObj);
 // imposto la keyboard
-$parameters["reply_markup"] = $param;
+$parameters["reply_markup"] = '$data, $data1';
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 
