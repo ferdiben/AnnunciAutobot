@@ -33,7 +33,7 @@ $replyMarkup = array(
 );
 $encodedMarkup = json_encode($replyMarkup);
 
-$parameters = array('chat_id' => $chatId, 'text' => $response, 'reply_markup' => $encodedMarkup);
+$parameters = array('chat_id' => $chatId, 'text' => $response);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 
