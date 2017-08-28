@@ -21,21 +21,17 @@ $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 $text = strtolower($text);
 
-header("Content-Type: application/json");
-$response = '';
-$encodedMarkup = '';
-
-$list=array("A", "B", "C");
-$response="Choose:";
-global $bottoken;
 $replyMarkup = array(
-    'keyboard' => $list
+    'keyboard' => array(
+        array("A", "B")
+    )
 );
 $encodedMarkup = json_encode($replyMarkup);
-$parameters = array('chat_id' => $chatId, 'text' => $response);
-$keyboard = ['inline_keyboard' => [[['text' =>  'myText', 'callback_data' => 'myCallbackText'],['text' =>  'myText', 'callback_data' => 'myCallbackText']]]];
-$parameters["reply_markup"] = json_encode($keyboard, true);
-
+$parameters = array(
+    'chat_id' => $chatId,
+    'reply_markup' => $encodedMarkup,
+    'text' => "Test"
+);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 
