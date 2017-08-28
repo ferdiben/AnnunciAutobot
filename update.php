@@ -35,3 +35,4 @@ $parameters["reply_markup"] = '{ "keyboard": [["uno"], ["due"], ["tre"], ["quatt
 // converto e stampo l'array JSON sulla response
 echo json_encode($parameters);
 }
+?>
