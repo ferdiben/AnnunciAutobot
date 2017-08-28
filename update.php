@@ -4,6 +4,15 @@ include 'Telegram.php';
 $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
-$content = array('chat_id' => $chat_id, 'text' => "Test");
+
+$option = array( 
+    //First row
+    array($telegram->buildKeyboardButton("Button 1"), $telegram->buildKeyboardButton("Button 2")), 
+    //Second row 
+    array($telegram->buildKeyboardButton("Button 3"), $telegram->buildKeyboardButton("Button 4"), $telegram->buildKeyboardButton("Button 5")), 
+    //Third row
+    array($telegram->buildKeyboardButton("Button 6")) );
+$keyb = $telegram->buildKeyBoard($option, $onetime=false);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "This is a Keyboard Test");
 $telegram->sendMessage($content);
 ?>
