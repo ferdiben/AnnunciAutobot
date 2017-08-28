@@ -33,7 +33,7 @@ $replyMarkup = array(
 );
 $encodedMarkup = json_encode($replyMarkup);
 $parameters = array('chat_id' => $chatId, 'text' => $response);
-$keyboard = ['inline_keyboard' => [[['text' =>  'myText', 'callback_data' => 'myCallbackText']]]];
+$keyboard = ['inline_keyboard' => [[['text' =>  'myText', 'callback_data' => 'myCallbackText'],['text' =>  'myText', 'callback_data' => 'myCallbackText']]]];
 $parameters["reply_markup"] = json_encode($keyboard, true);
 
 $parameters["method"] = "sendMessage";
