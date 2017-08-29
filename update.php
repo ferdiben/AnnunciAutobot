@@ -1,6 +1,6 @@
 <?php
 include 'Telegram.php';
-
+//d
   $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
     $database   = $connection->selectDB('annunciauto');
     $Marche_Modelli = $database->selectCollection('Marche_Modelli');
