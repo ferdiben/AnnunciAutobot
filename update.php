@@ -12,6 +12,7 @@ $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
 
+Parametri($text);
 
 $option = array($marche);
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
