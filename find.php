@@ -4,6 +4,8 @@
 
 //Parametri($text1);
 
+session_start();
+
 function Parametri($text) {
     $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
     $database = $connection->selectDB('annunciauto');
