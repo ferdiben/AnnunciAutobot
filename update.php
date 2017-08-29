@@ -14,7 +14,13 @@ $text = strtolower($text);
 
 Parametri($text);
 
-$option = array($marche);
+$option = array( 
+    //First row
+    array($telegram->buildKeyboardButton("Button 1"), $telegram->buildKeyboardButton("Button 2")), 
+    //Second row 
+    array($telegram->buildKeyboardButton("Button 3"), $telegram->buildKeyboardButton("Button 4"), $telegram->buildKeyboardButton("Button 5")), 
+    //Third row
+    array($telegram->buildKeyboardButton("Button 6")) );
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $_SESSION["marca"]);
 $telegram->sendMessage($content);
