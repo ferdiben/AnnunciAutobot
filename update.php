@@ -55,9 +55,9 @@ $_SESSION["alimentazione"] = $alimentazione;
 }
 
 
-$option = array( 
+$option = array(array( 
     //First row
-    $marche );
+    $marche ));
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "This is a Keyboard Test");
 $telegram->sendMessage($content);
