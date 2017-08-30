@@ -7,11 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
 {
     public static $files = array (
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '547f39254e5312c66b30c9b6a7d3570f' => __DIR__ . '/..' . '/eleirbag89/telegrambotphp/Telegram.php',
         '221a7c0887f892e44dd08191321d3815' => __DIR__ . '/..' . '/eleirbag89/telegrambotphp/TelegramErrorLogger.php',
     );
@@ -21,9 +21,16 @@ class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
         array (
             'Telegram\\Bot\\' => 13,
         ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Translation\\' => 30,
+        ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Container\\' => 14,
         ),
         'I' => 
         array (
@@ -36,6 +43,14 @@ class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Inflector\\' => 26,
+        ),
+        'C' => 
+        array (
+            'Carbon\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -43,9 +58,25 @@ class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
         array (
             0 => __DIR__ . '/..' . '/irazasyed/telegram-bot-sdk/src',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -67,15 +98,13 @@ class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'D' => 
+        'Doctrine\\Common\\Inflector\\' => 
         array (
-            'Doctrine\\Common\\Inflector\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
+        'Carbon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
     );
 
@@ -84,7 +113,6 @@ class ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit4ab82b2e143e11a3cd9ac559ea790ec5::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
