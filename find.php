@@ -101,26 +101,27 @@ function Parametri($text) {
 }
 
 function setParametri() {
+    $options = array();
     if (!isset($_SESSION["marca"])) {
-        $options[] = "Marca";
+        array_push($options, "Marca");
     }
 
     if (!isset($_SESSION["modello"])) {
-        $options[] = "Modello";
+        array_push($options, "Modello");
     }
 
     if (!isset($_SESSION["regione"])) {
-        $options[] = "Regione";
+        array_push($options, "Regione");
     }
 
     if (!isset($_SESSION["provincia"])) {
-        $options[] = "Provincia";
+        array_push($options, "Provincia");
     }
 
     if (!isset($_SESSION["alimentazione"])) {
-        $options[] = "Alimentazione";
+        array_push($options, "Alimentazione");
     }
-    return $options[];
+    return $options;
 }
 
 echo($_SESSION["marca"]);
