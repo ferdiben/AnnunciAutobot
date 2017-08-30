@@ -2,6 +2,12 @@
 include 'Telegram.php';
 include 'find.php';
 
+if($_ENV['REDIS_URL']) {
+    $redisUrlParts = parse_url($_ENV['REDIS_URL']);
+    ini_set('session.save_handler','redis');
+    ini_set('session.save_path',"tcp://$redisUrlParts[host]:$redisUrlParts[port]?auth=$redisUrlParts[pass]");
+  }
+
 session_start();
 // Set the bot TOKEN
 $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
