@@ -100,6 +100,29 @@ function Parametri($text) {
     }
 }
 
+function setParametri() {
+    if (!isset($_SESSION["marca"])) {
+        $options[] = "Marca";
+    }
+
+    if (!isset($_SESSION["modello"])) {
+        $options[] = "Modello";
+    }
+
+    if (!isset($_SESSION["regione"])) {
+        $options[] = "Regione";
+    }
+
+    if (!isset($_SESSION["provincia"])) {
+        $options[] = "Provincia";
+    }
+
+    if (!isset($_SESSION["alimentazione"])) {
+        $options[] = "Alimentazione";
+    }
+    return $options[];
+}
+
 echo($_SESSION["marca"]);
 echo($_SESSION["modello"]);
 echo($_SESSION["regione"]);
