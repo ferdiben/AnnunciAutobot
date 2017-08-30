@@ -2,7 +2,7 @@
 include 'Telegram.php';
 include 'find.php';
 
-
+session_start();
 // Set the bot TOKEN
 $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
