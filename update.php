@@ -14,7 +14,7 @@ $text = strtolower($text);
 
 Parametri($text);
 
-$ciao = array("ddd", "hhh");
+setParametri();
 
 $option = array( 
     //First row
@@ -24,6 +24,8 @@ $option = array(
     //Third row
     array($telegram->buildKeyboardButton("Button 6")) );
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $ciao[1]);
+
+
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $ciao[0]);
 $telegram->sendMessage($content);
 ?>
