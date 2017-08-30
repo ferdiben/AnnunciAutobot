@@ -4,7 +4,7 @@
 	"irazasyed/telegram-bot-sdk": "^2.0",
 	"guzzlehttp/guzzle": "~6",
 	"eleirbag89/telegrambotphp" : "~1",
-	"ext-memcached": "*"
+	"ext-redis": "*"
   }
 }
 
