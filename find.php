@@ -72,7 +72,7 @@ function Parametri($text, $sid) {
     }
 
     $z = 0;
-    if (!isset($_SESSION["regione"])) {
+    if (!isset($_SESSION["regione"] || isset($_SESSION["provincia"])) {
         foreach ($cursor_Regione as $regione) {
             $regioni[$z] = $regione['regione'];
             $cursor_Provincia = $Regioni_Province->findOne(array("regione" => $regioni[$z]));
