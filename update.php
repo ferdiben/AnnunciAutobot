@@ -29,6 +29,6 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $ciao[0].$ciao[1].$ciao[2].$ciao[3]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $_SESSION['marca'].$_SESSION['modello'].$_SESSION['regione'].$_SESSION['provincia'].$_SESSION['alimentazione']);
 $telegram->sendMessage($content);
 ?>
