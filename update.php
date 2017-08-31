@@ -4,7 +4,7 @@ include 'find.php';
 
 error_reporting(E_ALL);
     ini_set('session.save_handler','redis');
-    ini_set('session.save_path',"tcp://ec2-34-252-182-25.eu-west-1.compute.amazonaws.com:13419?auth=p05ebe76c4296539328f91efde721822040f16c9e599be903602914d21c27a55e&prefix=172380195");
+    ini_set('session.save_path',"tcp://ec2-34-252-182-25.eu-west-1.compute.amazonaws.com:13419?auth=p05ebe76c4296539328f91efde721822040f16c9e599be903602914d21c27a55e");
   
 
 // Set the bot TOKEN
@@ -19,6 +19,7 @@ session_start();
 session_id($chat_id);
 $_SESSION['sessionid'] = session_id();
 
+$redis->set(';message';, ';Hello world';);
 
 Parametri($text, $chat_id);
 
@@ -33,6 +34,6 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION[$chat_id]['modello'].$_SESSION['regione'].$_SESSION['provincia'].$_SESSION['alimentazione']);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$redis->exists('message').$_SESSION['modello'].$_SESSION['regione'].$_SESSION['provincia'].$_SESSION['alimentazione']);
 $telegram->sendMessage($content);
 ?>
