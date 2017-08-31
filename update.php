@@ -17,14 +17,14 @@ Parametri($text, $chat_id);
 $questions = setParametri();
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it"), $telegram->buildInlineKeyBoardButton("Skip",  $url='http://link3.it', $callback_data="skip")));
+    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it"), $telegram->buildInlineKeyBoardButton("Skip",  $url='http://link321.it')));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
 if ($text === "/start"){
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_data);
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0]);
 }
 $telegram->sendMessage($content);
 ?>
