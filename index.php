@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 session_start();
+session_destroy();
  if($_ENV['REDIS_URL']) {
     $redisUrlParts = parse_url($_ENV['REDIS_URL']);
     ini_set('session.save_handler','redis');
