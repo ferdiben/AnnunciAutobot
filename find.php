@@ -123,7 +123,7 @@ function setParametri() {
     if (!isset($_SESSION["alimentazione"])) {
         array_push($_SESSION["options"], "Vuoi inserire l'Alimentazione?");
     }
-    return $options;
+    return $_SESSION["options"];
 }
 
 echo($_SESSION["marca"]);
