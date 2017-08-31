@@ -11,9 +11,7 @@ $result = $telegram->getData();
 $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
-session_start();
-session_id($chat_id);
-$_SESSION['sessionid'] = session_id();
+
 
 
 Parametri($text, $chat_id);
