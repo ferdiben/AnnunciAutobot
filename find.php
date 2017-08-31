@@ -87,7 +87,7 @@ function Parametri($text, $sid) {
     }
 
     $s = 0;
-    if (!isset($_SESSION["marca"]) && isset($_SESSION["modello"])) {
+    if (!isset($_SESSION["marca"]) || isset($_SESSION["modello"])) {
         foreach ($cursor_Marche as $marca) {
             $marche[$s] = $marca['marca'];
             $cursor_Modelli = $Marche_Modelli->findOne(array("marca" => $marche[$s]));
