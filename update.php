@@ -27,6 +27,6 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION['option'][0]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION['option']);
 $telegram->sendMessage($content);
 ?>
