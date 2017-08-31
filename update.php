@@ -18,8 +18,7 @@ $questions = setParametri();
 $option = array( 
     //First row
     array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it"), $telegram->buildInlineKeyBoardButton("Skip", $questions[0]));
-)), 
-    );
+
 $keyb = $telegram->buildInlineKeyBoard($option);
 
 if ($text === "/start"){
