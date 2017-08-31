@@ -3,8 +3,6 @@
 //$text1 = "fiorinoffffcampaniaiserniadiesel";
 
 //Parametri($text1);
-ini_set('session.save_handler','redis');
-    ini_set('session.save_path',"tcp://ec2-34-252-182-25.eu-west-1.compute.amazonaws.com:13419?auth=p05ebe76c4296539328f91efde721822040f16c9e599be903602914d21c27a55e");
  
 
 function Parametri($text, $sid) {
