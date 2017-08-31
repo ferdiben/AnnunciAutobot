@@ -12,8 +12,6 @@ $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
 
-
-
 Parametri($text, $chat_id);
 
 $ciao = setParametri();
@@ -27,6 +25,6 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION['option']);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION['options']);
 $telegram->sendMessage($content);
 ?>
