@@ -72,7 +72,7 @@ function Parametri($text, $sid) {
     }
 
     $z = 0;
-    if (!isset($_SESSION["regione"]) || isset($_SESSION["provincia"])) {
+    if (!isset($_SESSION["regione"]) && isset($_SESSION["provincia"])) {
         foreach ($cursor_Regione as $regione) {
             $regioni[$z] = $regione['regione'];
             $cursor_Provincia = $Regioni_Province->findOne(array("regione" => $regioni[$z]));
@@ -87,7 +87,7 @@ function Parametri($text, $sid) {
     }
 
     $s = 0;
-    if (!isset($_SESSION["marca"]) || isset($_SESSION["modello"])) {
+    if (!isset($_SESSION["marca"]) && isset($_SESSION["modello"])) {
         foreach ($cursor_Marche as $marca) {
             $marche[$s] = $marca['marca'];
             $cursor_Modelli = $Marche_Modelli->findOne(array("marca" => $marche[$s]));
