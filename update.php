@@ -5,7 +5,7 @@ include 'find.php';
 if($_ENV['REDIS_URL']) {
     $redisUrlParts = parse_url($_ENV['REDIS_URL']);
     ini_set('session.save_handler','redis');
-    ini_set('session.save_path',"tcp://$redisUrlParts[ec2-34-252-182-25.eu-west-1.compute.amazonaws.com]:$redisUrlParts[13419]?auth=$redisUrlParts[Capracotta.1]");
+    ini_set('session.save_path',"tcp://ec2-34-252-182-25.eu-west-1.compute.amazonaws.com:13419");
   }
 
 session_start();
