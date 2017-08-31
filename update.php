@@ -1,6 +1,10 @@
 <?php
 include 'Telegram.php';
 include 'find.php';
+
+$RedisClient = new Redis ();
+$RedisClient ->connect( "tcp://ec2-34-252-182-25.eu-west-1.compute.amazonaws.com", "13419", "NULL", "150");
+
 session_start();
 // Set the bot TOKEN
 $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
