@@ -16,7 +16,7 @@ $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
 
-Parametri($text);
+Parametri($text, $chat_id);
 
 $ciao = setParametri();
 $option = array( 
