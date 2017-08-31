@@ -34,7 +34,7 @@ function Parametri($text, $sid) {
 
             foreach ($_mod as $_modelli) {
                 if (strpos($text, $_modelli) !== false) {
-                    $_SESSION["$sid"]["modello"] = $_modelli;
+                    $_SESSION["modello"] = $_modelli;
                 }
             }
         }
