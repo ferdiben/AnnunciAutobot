@@ -19,7 +19,6 @@ session_start();
 session_id($chat_id);
 $_SESSION['sessionid'] = session_id();
 
-$redis->set(';message';, ';Hello world';);
 
 Parametri($text, $chat_id);
 
@@ -34,6 +33,6 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$redis->exists('message').$_SESSION['modello'].$_SESSION['regione'].$_SESSION['provincia'].$_SESSION['alimentazione']);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => session_id().$_SESSION[session_id()]['modello'].$_SESSION['regione'].$_SESSION['provincia'].$_SESSION['alimentazione']);
 $telegram->sendMessage($content);
 ?>
