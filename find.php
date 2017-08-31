@@ -31,7 +31,7 @@ function Parametri($text, $sid) {
 
         if (strpos($text, $marche[$i]) !== false) {
             $_SESSION["marca"] = $marche[$i];
-
+            $_SESSION["modello"] = NULL;
             foreach ($_mod as $_modelli) {
                 if (strpos($text, $_modelli) !== false) {
                     $_SESSION["modello"] = $_modelli;
