@@ -50,7 +50,7 @@ function Parametri($text, $sid) {
 
         if (strpos($text, $regioni[$j]) !== false) {
             $_SESSION["regione"] = $regioni[$j];
-
+            $_SESSION["provincia"] = NULL;
             foreach ($_prov as $_provincia) {
                 if (strpos($text, $_provincia) !== false) {
                     $_SESSION["provincia"] = $_provincia;
@@ -72,7 +72,7 @@ function Parametri($text, $sid) {
     }
 
     $z = 0;
-    if (!isset($_SESSION["regione"]) && isset($_SESSION["provincia"])) {
+    if (!isset($_SESSION["regione"]) || isset($_SESSION["provincia"]) || isset($_SESSION["regione"])) {
         foreach ($cursor_Regione as $regione) {
             $regioni[$z] = $regione['regione'];
             $cursor_Provincia = $Regioni_Province->findOne(array("regione" => $regioni[$z]));
