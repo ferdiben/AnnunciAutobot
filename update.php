@@ -24,7 +24,7 @@ $keyb = $telegram->buildInlineKeyBoard($option);
 if ($text === "/start"){
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0]);
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_data);
 }
 $telegram->sendMessage($content);
 ?>
