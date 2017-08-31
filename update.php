@@ -8,7 +8,6 @@ $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
-$name = $telegram->getMe("username");
 $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
@@ -26,7 +25,7 @@ $option = array(
 $keyb = $telegram->buildKeyBoard($option, $onetime=false);
 
 if ($text === "/start"){
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Benvenuto".$name);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $ciao[0]);
 
