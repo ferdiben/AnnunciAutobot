@@ -31,7 +31,7 @@ if($callback_query["data"] === "eseguiricerca"){
 
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="", $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it", $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
