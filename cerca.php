@@ -2,7 +2,7 @@
 <html>
     <head>
 
-        <title>AnnunciAuto</title>\
+        <title>AnnunciAuto</title>
         <link href = "css/bootstrap.min.css" rel = "stylesheet">
         <link href = "css/Login.css" rel = "stylesheet">
         <link href = "css/filtri.css" rel = "stylesheet">
