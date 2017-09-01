@@ -8,7 +8,6 @@ $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
-$b =  $result["message"]["reply_markup"];
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
@@ -29,7 +28,7 @@ Parametri($text, $chat_id);
 $questions = setParametri();
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="", $callback_data="ciao", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="stronzo", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="", $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
