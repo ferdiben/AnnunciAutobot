@@ -103,27 +103,27 @@ function Parametri($text, $sid) {
 }
 
 function setParametri() {
-    $options = array();
+     $_SESSION['total_elements']=array();
     if (!isset($_SESSION["marca"])) {
-        array_push($options, "Vuoi inserire la Marca?");
+        array_push($_SESSION['total_elements'], "Vuoi inserire la Marca?");
     }
 
     if (!isset($_SESSION["modello"])) {
-        array_push($options, "Vuoi inserire il Modello?");
+        array_push($_SESSION['total_elements'], "Vuoi inserire il Modello?");
     }
 
     if (!isset($_SESSION["regione"])) {
-        array_push($options, "Vuoi inserire la Regione?");
+        array_push($_SESSION['total_elements'], "Vuoi inserire la Regione?");
     }
 
     if (!isset($_SESSION["provincia"])) {
-        array_push($options, "Vuoi inserire la Provincia?");
+        array_push($_SESSION['total_elements'], "Vuoi inserire la Provincia?");
     }
 
     if (!isset($_SESSION["alimentazione"])) {
-        array_push($options, "Vuoi inserire l'Alimentazione?");
+        array_push($_SESSION['total_elements'], "Vuoi inserire l'Alimentazione?");
     }
-    return $options;
+    return $_SESSION['total_elements'];
 }
 
 echo($_SESSION["marca"]);
