@@ -9,7 +9,7 @@ $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
- $new_message_array = iterator_to_array(json_decode($callback_query->getMessage()->toJson(), true));
+ $new_message_array = json_decode($callback_query->getMessage()->toJson(), true);
 
 $text = $result["message"]["text"];
 $text = trim($text);
