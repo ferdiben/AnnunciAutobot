@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AnnunciAuto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/function.js"></script>
+        <script type="text/javascript" src="js/regioni_province.js"></script>
+
+    </head>
+    <body>
+
+        <div style="background-color: rgba(21,21,21,0.7);" class = "panel panel-black">
+            <div class = "panel-heading" data-toggle="collapse" data-target="#filtri">
+                <h1 class = "panel-title" style="color: white"> Filtri di ricerca <span style="float: right" class="glyphicon glyphicon-align-justify"></span></h1>
+            </div>
+            <div class = "panel-body collapse in " id="filtri" >
+
+
+
+                <form name="cerca_annuncio" action="cookie_ricerca.php" method="post">
+                    <div style="background-color: rgba(252,248,227,0.7);" class = "panel panel-warning">
+                        <div class = "panel-heading" data-toggle="collapse" data-target="#marca">
+                            <h3 class = "panel-title"><span class = "fa fa-line-chart"></span> Marca/Modello <span class="caret"></span></h3>
+                        </div>
+                        <div  class = "panel-body collapse " id="marca">
+                            <ul class = "list-group">
+                                <li style="background-color: rgba(252,248,227,0.1)" class = "list-group-item">
+                                    <div class = "form-group">
+                                        <div class = "col-md-18">
+                                            <select id = "selectbasic" name = "marca" class = "form-control" onchange = "setModello(this)">
+                                                <option value = "" selected = "selected">Seleziona una marca:</option>
+                                                <option value="audi">Audi</option>
+                                        <option value="bmw">BMW</option>
+                                        <option value="citroen">Citroen</option>
+                                        <option value="ferrari">Ferrari</option>
+                                        <option value="ford">Ford</option>
+                                        <option value="honda">Honda</option>
+                                        <option value="lamborghini">Lamborghini</option>
+                                        <option value="lancia">Lancia</option>
+                                        <option value="lotus">Lotus</option>
+                                        <option value="mazda">Mazda</option>
+                                        <option value="nissan">Nissan</option>
+                                        <option value="opel=">Opel</option>
+                                        <option value="porsche">Porsche</option>
+                                        <option value="peugeut">Peugeut</option>
+                                        <option value="renault">Renalut</option>
+                                        <option value="skoda">Skoda</option>
+                                        <option value="seat">Seat</option>
+                                        <option value="suzuky">Suzuky</option>
+                                        <option value="volkswagen">Volkswagen</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(252,248,227,0.1)"  class = "list-group-item">
+                                    <div class = "form-group">
+
+                                        <div class = "col-md-18">
+                                            <select id = "selectbasic" name = "modello" class = "form-control" onchange="setTextField(this)">
+                                                <option value = "" selected = "selected">Seleziona un modello:</option>
+                                            </select>
+                                            <input id="modellotxt" type = "hidden" name = "modellotxt" value = "" />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background-color: rgba(245,245,245,0.7);" class = "panel panel-default">
+                        <div class = "panel-heading" data-toggle="collapse" data-target="#regione">
+                            <h3 class = "panel-title"><span class = "fa fa-line-chart"></span> Regione/Provincia <span class="caret"></span></h3>
+                        </div>
+                        <div class = "panel-body collapse " id="regione">
+                            <ul class = "list-group">
+                                <li style="background-color: rgba(245,245,245,0.1);" class = "list-group-item">
+                                    <div class = "form-group">
+                                        <div class = "col-md-18">
+                                            <select id = "selectbasic" name = "regione" class = "form-control" onchange = "setProvincia(this)">
+                                                <option value = "" selected = "selected">Seleziona una regione:</option>
+                                                <option value = "Abruzzo">Abruzzo</option>
+                                                <option value = "Basilicata">Basilicata</option>
+                                                <option value = "Calabria">Calabria</option>
+                                                <option value = "Campania">Campania</option>
+                                                <option value = "Emilia Romagna">Emilia Romagna</option>
+                                                <option value = "Friuli Venezia Giulia">Friuli Venezia Giulia</option>
+                                                <option value = "Lazio">Lazio</option>
+                                                <option value = "Liguria">Liguria</option>
+                                                <option value = "Lombardia">Lombardia</option>
+                                                <option value = "Marche">Marche</option>
+                                                <option value = "Molise">Molise</option>
+                                                <option value = "Piemonte">Piemonte</option>
+                                                <option value = "Puglia">Puglia</option>
+                                                <option value = "Sardegna">Sardegna</option>
+                                                <option value = "Sicilia">Sicilia</option>
+                                                <option value = "Toscana">Toscana</option>
+                                                <option value = "Trentino Alto Adige">Trentino Alto Adige</option>
+                                                <option value = "Umbria">Umbria</option>
+                                                <option value = "Valle D'Aosta">Valle D'Aosta</option>
+                                                <option value = "Veneto">Veneto</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(245,245,245,0.1);" class = "list-group-item">
+                                    <div class = "form-group">
+
+                                        <div class = "col-md-18">
+                                            <select id = "selectbasic" name = "provincia" class = "form-control" onchange="setTextField2(this)">
+                                                <option value = "" selected = "selected">Seleziona una provincia:</option>
+                                            </select>
+                                            <input id="provinciatxt" type = "hidden" name = "provinciatxt" value = "" />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background-color: rgba(242,222,222,0.7);" class = "panel panel-danger">
+                        <div class = "panel-heading" data-toggle="collapse" data-target="#alimentazione">
+                            <h3 class = "panel-title"><span class = "fa fa-line-chart"></span> Alimentazione <span class="caret"></span></h3>
+                        </div>
+                        <div class = "panel-body collapse " id="alimentazione">
+                            <ul class = "list-group">
+                                <li style="background-color: rgba(242,222,222,0.1);" class = "list-group-item">
+                                    <div class = "checkbox">
+                                        <label>
+                                            <input name="alimentazione[]" type = "checkbox" value = "diesel"> Diesel
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(242,222,222,0.1);" class = "list-group-item">
+                                    <div class = "checkbox">
+                                        <label>
+                                            <input name="alimentazione[]" type = "checkbox" value = "benzina"> Benzina
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(242,222,222,0.1);" class = "list-group-item">
+                                    <div class = "checkbox">
+                                        <label>
+                                            <input name="alimentazione[]" type = "checkbox" value = "metano"> Gpl/Metano
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(242,222,222,0.1);" class = "list-group-item">
+                                    <div class = "checkbox">
+                                        <label>
+                                            <input name="alimentazione[]" type = "checkbox" value = "ibrida"> Ibrida
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background-color: rgba(217,237,247,0.7);" class = "panel panel-info">
+                        <div class = "panel-heading" data-toggle="collapse" data-target="#prezzo">
+                            <h3 class = "panel-title"><span class = "fa fa-line-chart"></span> Prezzo <span class="caret"></span></h3>
+                        </div>
+                        <div class = "panel-body collapse " id="prezzo">
+                            <ul class = "list-group">
+                                <li style="background-color: rgba(217,237,247,0.1);" class = "list-group-item">
+                                    <div class = "form-group">
+                                        <input name="prezzo_min" type = "text" class = "form-control" placeholder = "Da">
+                                    </div>
+                                </li>
+                                <li style="background-color: rgba(217,237,247,0.1);" class = "list-group-item">
+                                    <div class = "form-group">
+                                        <input name="prezzo_max" type = "text" class = "form-control" placeholder = "A">
+                                    </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background-color: rgba(223,240,216,0.7);" class = "panel panel-success">
+                        <div class = "panel-heading" data-toggle="collapse" data-target="#cerca">
+                            <h3 class = "panel-title"><span class = "fa fa-line-chart"></span> Trova la tua Auto <span class="caret"></span></h3>
+                        </div>
+                        <div class = "panel-body collapse " id="cerca" align = "center">
+                            <button type="submit" name="cerca_annuncio" value="cerca" class = "btn btn-md btn-hover btn-success ">Cerca </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
