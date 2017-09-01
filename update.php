@@ -12,10 +12,12 @@ $b =  $result["message"]["reply_markup"];
 $callback_query = $telegram->Callback_Message();
 
 
-
+ob_start();
+var_dump($telegram);
+$str = ob_get_clean();
 $file = 'file.txt';
 $current = file_get_contents($file);
-$current .= "ciao";
+$current .= $str;
 file_put_contents($file, $current);
 
 
