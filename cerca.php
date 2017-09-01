@@ -122,19 +122,19 @@
                                     $p = $_GET['p'];
                                     if ($p > 0) {
                                         ?>
-                                        <li><a href="cerca.php?p=<?php echo ($p - 1); ?>">&laquo;</a></li>
+                                        <li><a href="https://annunciautobot.herokuapp.com/cerca.phpcerca.php?p=<?php echo ($p - 1); ?>">&laquo;</a></li>
                                         <?php
                                     }
                                     if ($num_pag > 0) {
                                         for ($i = 0; $i < ($num_pag); $i++) {
                                             ?>
-                                            <li><a href="cerca.php?p=<?php echo ($i); ?>"><?php echo ($i + 1); ?></a></li>
+                                            <li><a href="https://annunciautobot.herokuapp.com/cerca.php?p=<?php echo ($i); ?>"><?php echo ($i + 1); ?></a></li>
                                             <?php
                                         }
                                     }
                                     if ($p != ($num_pag - 1)) {
                                         ?>         
-                                        <li><a href="cerca.php?p=<?php echo ($p + 1); ?>">&raquo;</a></li>
+                                        <li><a href="https://annunciautobot.herokuapp.com/cerca.php?p=<?php echo ($p + 1); ?>">&raquo;</a></li>
                                     <?php } ?>
                                 </ul>
 
