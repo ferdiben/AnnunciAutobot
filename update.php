@@ -27,7 +27,7 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
 //$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_query['inline_message_id']);
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $callback_query);
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $callback_query->getMessage());
 
 }
 $telegram->sendMessage($content);
