@@ -10,11 +10,6 @@ $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
 
-$update = $this->getUpdate();
-$callback_query = $update->getCallbackQuery();
-$callback_query_id = $callback_query->getId();
-$callback_datas = $callback_query->getData();
-
 $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
@@ -31,7 +26,7 @@ $keyb = $telegram->buildInlineKeyBoard($option);
 if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]))){
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_query_id.$callback_query['inline_message_id']);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_query['inline_message_id']);
 }
 $telegram->sendMessage($content);
 ?>
