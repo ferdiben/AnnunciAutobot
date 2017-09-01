@@ -26,13 +26,6 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
-if($callback_query["data"] === "eseguiricerca"){
-        session_destroy();
-} elseif($callback_query["data"] === "skip"){
-   array_shift($_SESSION['total_elements']);
-
-}
-
 $option = array( 
     //First row
     array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="", $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
@@ -43,7 +36,14 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
 $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."Marca:".$_SESSION["marca"]."Modello:".$_SESSION["modello"]."Regione:".$_SESSION["regione"]."Provincia:".$_SESSION["provincia"]."Alimentazione:".$_SESSION["alimentazione"].$_SESSION['total_elements'][0].$a);
+}
+
+if($callback_query["data"] === "eseguiricerca"){
+        session_destroy();
+} elseif($callback_query["data"] === "skip"){
+   array_shift($_SESSION['total_elements']);
 
 }
+
 $telegram->sendMessage($content);
 ?>
