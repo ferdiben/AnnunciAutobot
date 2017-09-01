@@ -6,7 +6,6 @@
         <link href = "css/bootstrap.min.css" rel = "stylesheet">
         <link href = "css/Login.css" rel = "stylesheet">
         <link href = "css/filtri.css" rel = "stylesheet">
-        <?php include 'loggato.php'; ?>
 
     </head>
 
@@ -27,18 +26,14 @@
 
                         <?php							
 						
-						var_dump($$_GET["alimentazione"]);
-						.
-                        $rangeQuery = array("marca" => $_GET["marca"],
-                            "modello" => $_GET["modello"],
-                            "regione" => $_GET["regione"],
-                            "provincia" => $$_GET["provincia"],
-                            "alimentazione" => array_filter(array('$in' => unserialize($$_GET["alimentazione"]))),
-                            "prezzo" => array_filter(array('$gt' => intval($$_GET["prezzo_min"]), '$lt' => intval($$_GET["prezzo_max"]))));
+                        $rangeQuery = array("marca" => ucfirst($_GET["marca"]),
+                            "modello" => ucfirst($_GET["modello"]),
+                            "regione" => ucfirst($_GET["regione"]),
+                            "provincia" => ucfirst($_GET["provincia"]),
+                            "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_GET["alimentazione"])))),
+                            "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo_min"]), '$lt' => intval($_GET["prezzo_max"]))));
 
-//                        var_dump($rangeQuery);
                         $filter = array_filter($rangeQuery);
-//                        var_dump($filter);
 
                         $p = intval($_GET['p']);
                         $ann_pag = 1;
@@ -46,10 +41,10 @@
                         $id_auto = $_GET["id_auto"];
 
                         $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
-                        $db = $connection->AnnunciAuto;
-                        $collection = $connection->$db->Auto;
+                        $db = $connection->selectDB('annunciauto');
+                        $collection = $db->selectCollection('Auto');
                         $a = null;
-                        $a = $collection->find($filter)->skip($to_skip)->limit($ann_pag);
+                        $a = $collection->find($filter);
                         $num_pag = ceil(($a->count()) / $ann_pag);
                         $q = $collection->findOne($filter);
 						$Utente = $connection->$db->Utenti;
@@ -58,8 +53,7 @@
                         if (isset($_POST["addpref"])) {
 							
 							$query1 = $Utente->findOne(array("email" => $_SESSION["email"]), array("preferiti[]" => $pref));
-//                            $count = count($query1['preferiti[]']);
-							var_dump($query1['preferiti[]']);
+
                             foreach ($query1['preferiti[]'] as $auto) {
                                 if ($auto == $pref) {
                                     $trovato = 1;
@@ -67,9 +61,8 @@
                                 } else {
                                     $trovato = 0;
                                 }
-								var_dump($trovato);
-//                                $count = count($query1['preferiti[]']);
-                            }
+
+								}
                             if ($trovato == 0) {
                                 $newdata = array('$push' => array("preferiti[]" => $pref));
                                 $Utente->update(array("email" => $_SESSION["email"]), $newdata);
