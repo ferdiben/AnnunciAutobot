@@ -11,6 +11,16 @@ $result = $telegram->getData();
 $b =  $result["message"]["reply_markup"];
 $callback_query = $telegram->Callback_Message();
 
+
+ob_start();
+    var_dump($b);
+    $result = ob_get_clean();
+$file = 'file.txt';
+$current = file_get_contents($file);
+$current .= $result;
+file_put_contents($file, $current);
+
+
 $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
