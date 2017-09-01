@@ -10,7 +10,7 @@ $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
-
+$i=0;
 
 
 $file = 'file.txt';
@@ -28,7 +28,7 @@ $questions = setParametri();
 if($callback_query["data"] === "eseguiricerca"){
         //session_destroy();
 } elseif($callback_query["data"] === "skip"){
-   $_SESSION['total_elements'][0] = NULL;
+   $i++;
 
 }
 
@@ -41,7 +41,7 @@ $keyb = $telegram->buildInlineKeyBoard($option);
 if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]))){
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."Marca:".$_SESSION["marca"]."Modello:".$_SESSION["modello"]."Regione:".$_SESSION["regione"]."Provincia:".$_SESSION["provincia"]."Alimentazione:".$_SESSION["alimentazione"].$_SESSION['total_elements'][0].$a);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."Marca:".$_SESSION["marca"]."Modello:".$_SESSION["modello"]."Regione:".$_SESSION["regione"]."Provincia:".$_SESSION["provincia"]."Alimentazione:".$_SESSION["alimentazione"].$_SESSION['total_elements'][$i].$a);
 }
 
 $telegram->sendMessage($content);
