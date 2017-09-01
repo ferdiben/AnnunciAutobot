@@ -45,7 +45,7 @@
                         $collection = $db->selectCollection('Auto');
                         $a = null;
                         $a = $collection->find($filter);
-                        $num_pag = ceil(($a->count()) / $ann_pag);
+                        $num_pag = ceil((count($a)) / $ann_pag);
                         $q = $collection->findOne($filter);
 						$Utente = $connection->$db->Utenti;
 						$pref = $_POST["addpref"];
