@@ -29,7 +29,7 @@ $questions = setParametri();
 if($callback_query["data"] === "eseguiricerca"){
         session_destroy();
 } elseif($callback_query["data"] === "skip"){
-   unset($_SESSION['total_elements'][0]);
+   array_shift($_SESSION['total_elements']);
 
 }
 
