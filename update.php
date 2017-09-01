@@ -10,7 +10,6 @@ $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
 $b = $result['callback_query']['message'];
 $callback_query = $telegram->Callback_Message();
-$a = $callback_query['message'].get('text');
 
 $text = $result["message"]["text"];
 $text = trim($text);
