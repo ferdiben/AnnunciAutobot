@@ -17,15 +17,14 @@ Parametri($text, $chat_id);
 $questions = setParametri();
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it", $callback_data="myCallbackText", $switch_inline_query=null, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="http://linj321.it", $callback_data="myCallbackText", $switch_inline_query=null, $switch_inline_query_current_chat=null)),
-array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="", $callback_data="myCallbackText", $switch_inline_query=null, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url='', $callback_data='myCallback1', $switch_inline_query=null, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it", $callback_data="myCallbackText", $switch_inline_query=null, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data="myCallback1", $switch_inline_query=null, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
 if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]))){
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0]);
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_data);
 }
 $telegram->sendMessage($content);
 ?>
