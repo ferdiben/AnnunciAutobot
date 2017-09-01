@@ -17,7 +17,8 @@ Parametri($text, $chat_id);
 $questions = setParametri();
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it"), $telegram->buildInlineKeyBoardButton("Skip", $callback_data='myCallbackText')));
+    array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $url="http://google.it"), $telegram->buildInlineKeyBoardButton("Skip", $url="http://linj321.it")),
+array($telegram->buildInlineKeyBoardButton("Esegui Ricerca", $callback_data="myCallbackText"), $telegram->buildInlineKeyBoardButton("Skip", $callback_data="myCallback1")));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
