@@ -8,8 +8,7 @@ $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
-$callback_query = $telegram->Callback_Query();
- $new_message_array = json_decode($callback_query->getMessage()->toJson(), true);
+$callback_query = $telegram->Callback_ID();
 
 $text = $result["message"]["text"];
 $text = trim($text);
@@ -28,7 +27,7 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
 //$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $questions[0].$callback_query['inline_message_id']);
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $new_message_array[0]);
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $callback_query);
 
 }
 $telegram->sendMessage($content);
