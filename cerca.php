@@ -9,7 +9,7 @@
 
     </head>
 
-    <body style="background:url(/AnnunciAuto/imgprof/cars3.jpg) fixed #2C1E00; background-size: 100% 100%">
+    <body style="background:url(/img/cars3.jpg) fixed #2C1E00; background-size: 100% 100%">
         <!--Navigation -->
         <div id = "includedContent"></div>
 
