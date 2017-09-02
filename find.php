@@ -18,12 +18,12 @@ function Parametri($text, $sid) {
     session_start();
 
     preg_match_all('!\d+!', $text, $prezzo);
- 
-   for($l=0; $l <= count($prezzo); $l++){
-    if(intval($prezzo[$l]) >= 1000){
-     $_SESSION["prezzo"] = strval($prezzo[$l]);
-    }
-   }
+ $_SESSION["prezzo"] = $prezzo[1];
+   //for($l=0; $l <= count($prezzo); $l++){
+    //if(intval($prezzo[$l]) >= 1000){
+     //$_SESSION["prezzo"] = strval($prezzo[$l]);
+    //}
+   //}
  
  
 
