@@ -24,7 +24,7 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
-if($callback_query["data"] !== "skip" && $callback_query["data"] === NULL){
+if($callback_query["data"] !== "skip" && is_string($callback_query["data"])){
     session_destroy();
 } elseif($callback_query["data"] === "skip"){
     $_SESSION["$i"]++;
