@@ -112,7 +112,7 @@ function Parametri($text, $sid) {
     $filter = array_filter($rangeQuery);
 
     $q = $collection->findOne($filter);
-    $_SESSION["count"] = count($q);
+   // $_SESSION["count"] = count($q);
 }
 
 function setParametri() {
