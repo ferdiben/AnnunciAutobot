@@ -33,7 +33,7 @@ file_put_contents($file, $current);
    for($l=0; $l <= count($prezzo); $l++){
     for($r=0; $r <= $prezzo[$l][$r]; $r++){
     if(intval($prezzo[$l][$r]) >= 1000){
-     $_SESSION["prezzo"] = strval($prezzo[$l]);
+     $_SESSION["prezzo"] = strval($prezzo[$l][$r]);
     }
    }
    }
