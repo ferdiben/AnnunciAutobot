@@ -11,7 +11,7 @@ $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
-$callback_query1 = $telegram->Callback_ID();
+$callback_query1 = $telegram->Callback_Message();
 $a1 = $callback_query1["data"];
 
 $file = 'file.txt';
