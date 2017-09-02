@@ -46,7 +46,7 @@
                         $collection = $db->selectCollection('Auto');
                         $a = null;
                         $a = $collection->find($filter);
-			    var_dump($a);
+			    var_dump(iterator_to_array($a));
                         $num_pag = ceil((count($a)) / $ann_pag);
                         $q = $collection->findOne($filter);
 						$Utente = $connection->$db->Utenti;
