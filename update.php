@@ -24,15 +24,15 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
-if($callback_query["data"] === "eseguiricerca"){
-    session_destroy();
-} elseif($callback_query["data"] === "skip"){
+ if($callback_query["data"] === "skip" && $callback_query["data"] === ""){
     $_SESSION["$i"]++;
+} else($callback_query["data"] === "eseguiricerca"){
+    session_destroy();
 }
 
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $callback_data="eseguiricerca", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
