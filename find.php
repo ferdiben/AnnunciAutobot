@@ -19,9 +19,9 @@ function Parametri($text, $sid) {
 
     preg_match_all('!\d+!', $text, $prezzo);
  
-   foreach($prezzo as $_prezzo){
-    if(intval($_prezzo) >= 1000){
-     $_SESSION["prezzo"] = $_prezzo;
+   for($l=0; $l <= count($prezzo); $l++){
+    if(intval($prezzo[$l]) >= 1000){
+     $_SESSION["prezzo"] = $prezzo[$l];
     }
    }
  
