@@ -32,7 +32,7 @@ if($callback_query["data"] === "new")){
 
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)) $telegram->buildInlineKeyBoardButton("Nuova Ricerca", $url="", $callback_data1="new", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)), $telegram->buildInlineKeyBoardButton("Nuova Ricerca", $url="", $callback_data1="new", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
