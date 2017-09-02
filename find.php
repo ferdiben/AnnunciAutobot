@@ -111,7 +111,7 @@ function Parametri($text, $sid) {
     "prezzo" => array_filter(array('$gt' => intval($_SESSION["prezzo"]), '$lt' => 100000)));
     $filter = array_filter($rangeQuery);
 
-    $q = $Auto->findOne($filter);
+    $q = $Auto->find($filter);
     $_SESSION["count"] = count($q);
 }
 
