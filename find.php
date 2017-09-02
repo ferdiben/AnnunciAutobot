@@ -21,7 +21,7 @@ function Parametri($text, $sid) {
  
  $file = 'file.txt';
 $current = file_get_contents($file);
-$current .=  $_SESSION["prezzo"];
+$current .=  var_dump($_SESSION["prezzo"]);
 file_put_contents($file, $current);
 
     $cursor_Marche = $Marche_Modelli->find();
