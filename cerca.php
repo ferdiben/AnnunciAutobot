@@ -79,10 +79,10 @@
                                 ?>
                                 <div style="background-color: rgba(21,21,21,0.7); color:#FFF;" class = "col-sm-4 col-lg-4 col-md-4">
                                 <div style="border:1px solid white; border-radius:4px; margin-top:20px; margin-bottom:20px; padding:4px;">
-                                    <div align="center"><a href="annuncio.php?id_auto=<?php echo ($doc["_id"]); ?>"><img src = "<?php echo ($immagin[0]); ?>" alt = "" width="250" height="200"></a></div>
+                                    <div align="center"><a href="https://annunciautobot.herokuapp.com/annuncio.php?id_auto=<?php echo ($doc["_id"]); ?>"><img src = "<?php echo ($immagin[0]); ?>" alt = "" width="250" height="200"></a></div>
                                             <div class = "caption">
                                                 <h4 class = "pull-right"><?php echo number_format(($doc["prezzo"]), 0, '', '.'); ?>€</h4>
-                                                <h4><a style="color: orange;" href="annuncio.php?id_auto=<?php echo ($doc["_id"]); ?>"><?php echo ucfirst(($doc["marca"])); ?>&nbsp;<?php echo ($doc["modello"]); ?></a>
+                                                <h4><a style="color: orange;" href="https://annunciautobot.herokuapp.com/annuncio.php?id_auto=<?php echo ($doc["_id"]); ?>"><?php echo ucfirst(($doc["marca"])); ?>&nbsp;<?php echo ($doc["modello"]); ?></a>
                                                 </h4>
                                                 <p><i class="glyphicon glyphicon-map-marker"></i><?php echo ($doc["regione"]); ?>, <?php echo ($doc["provincia"]); ?></p>
                                             </div>
