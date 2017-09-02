@@ -103,15 +103,15 @@ function Parametri($text, $sid) {
         }
     }
     
-    $rangeQuery = array("marca" => ucfirst($_SESSION["marca"]),
-    "modello" => ucfirst($_SESSION["modello"]),
-    "regione" => ucfirst($_SESSION["regione"]),
-    "provincia" => ucfirst($_SESSION["provincia"]),
-    "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_SESSION["alimentazione"])))),
-    "prezzo" => array_filter(array('$gt' => intval($_SESSION["prezzo"]), '$lt' => 100000)));
-    $filter = array_filter($rangeQuery);
+    //$rangeQuery = array("marca" => ucfirst($_SESSION["marca"]),
+    //"modello" => ucfirst($_SESSION["modello"]),
+    //"regione" => ucfirst($_SESSION["regione"]),
+    //"provincia" => ucfirst($_SESSION["provincia"]),
+    //"alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_SESSION["alimentazione"])))),
+    //"prezzo" => array_filter(array('$gt' => intval($_SESSION["prezzo"]), '$lt' => 100000)));
+    //$filter = array_filter($rangeQuery);
 
-    $q = $collection->findOne($filter);
+    //$q = $collection->findOne($filter);
    // $_SESSION["count"] = count($q);
 }
 
