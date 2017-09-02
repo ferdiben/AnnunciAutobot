@@ -112,7 +112,7 @@ function Parametri($text, $sid) {
     $filter = array_filter($rangeQuery);
 
     $q = $Auto->find($filter);
-    $_SESSION["count"] =  count(iterator_to_array($a));
+   // $_SESSION["count"] =  count(iterator_to_array($a));
 }
 
 function setParametri() {
