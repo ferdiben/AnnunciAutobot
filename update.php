@@ -39,7 +39,7 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
         $_SESSION["$i"]=0;
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."Marca:".$_SESSION["marca"]./n"Modello:".$_SESSION["modello"]./r"Regione:".$_SESSION["regione"]./n/r"Provincia:".$_SESSION["provincia"]."Alimentazione:".$_SESSION["alimentazione"]."Prezzo:".$_SESSION["prezzo"].$_SESSION['total_elements'][$_SESSION["$i"]]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."\nMarca:".$_SESSION["marca"]."Modello:".$_SESSION["modello"]."\rRegione:".$_SESSION["regione"]."\n\rProvincia:".$_SESSION["provincia"]."Alimentazione:".$_SESSION["alimentazione"]."Prezzo:".$_SESSION["prezzo"].$_SESSION['total_elements'][$_SESSION["$i"]]);
 }
 
 $telegram->sendMessage($content);
