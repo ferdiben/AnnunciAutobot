@@ -19,10 +19,16 @@ function Parametri($text, $sid) {
 
     preg_match_all('!\d+!', $text, $_SESSION["prezzo"]);
  
+ ob_start();
+var_dump($_SESSION["prezzo"]);
+$result = ob_get_clean();
+ 
  $file = 'file.txt';
 $current = file_get_contents($file);
-$current .=  var_dump($_SESSION["prezzo"]);
+$current .=  $result;
 file_put_contents($file, $current);
+ 
+ 
 
     $cursor_Marche = $Marche_Modelli->find();
 
