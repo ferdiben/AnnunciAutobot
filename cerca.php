@@ -24,7 +24,8 @@
                 <div class = "col-md-9">
                     <div class = "row">
 
-                        <?php							
+                        <?php	
+			    error_reporting(E_ALL);
 						
                         $rangeQuery = array("marca" => ucfirst($_GET["marca"]),
                             "modello" => ucfirst($_GET["modello"]),
@@ -45,6 +46,7 @@
                         $collection = $db->selectCollection('Auto');
                         $a = null;
                         $a = $collection->find($filter);
+			    var_dump($a);
                         $num_pag = ceil((count($a)) / $ann_pag);
                         $q = $collection->findOne($filter);
 						$Utente = $connection->$db->Utenti;
