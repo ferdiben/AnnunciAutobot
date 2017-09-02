@@ -26,7 +26,7 @@ $questions = setParametri();
 
  if($callback_query["data"] === "skip" && $callback_query["data"] === ""){
     $_SESSION["$i"]++;
-} else($callback_query["data"] === "eseguiricerca"){
+} else{
     session_destroy();
 }
 
