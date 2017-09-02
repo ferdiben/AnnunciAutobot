@@ -11,9 +11,6 @@ $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
-$callback_query1 = $telegram->Inline_Query();
-$a1 = $callback_query1["data"];
-
 $file = 'file.txt';
 $current = file_get_contents($file);
 $current .= $callback_query1["data"];
@@ -27,7 +24,7 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
-if($callback_query["data"] !== "skip" && is_string($callback_query["data"])){
+if($callback_query["data"] === "new")){
     session_destroy();
 } elseif($callback_query["data"] === "skip"){
     $_SESSION["$i"]++;
@@ -35,7 +32,7 @@ if($callback_query["data"] !== "skip" && is_string($callback_query["data"])){
 
 $option = array( 
     //First row
-    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
+    array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null), $telegram->buildInlineKeyBoardButton("Skip", $url="", $callback_data1="skip", $switch_inline_query=true, $switch_inline_query_current_chat=null)) $telegram->buildInlineKeyBoardButton("Nuova Ricerca", $url="", $callback_data1="new", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
 
 $keyb = $telegram->buildInlineKeyBoard($option);
 
@@ -43,7 +40,7 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
         $_SESSION["$i"]=0;
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."\nMarca:  ".ucfirst($_SESSION["marca"])."\nModello:  ".ucfirst($_SESSION["modello"])."\nRegione:  ".ucfirst($_SESSION["regione"])."\nProvincia:  ".ucfirst($_SESSION["provincia"])."\nAlimentazione:  ".ucfirst($_SESSION["alimentazione"])."\nPrezzo:  ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]].$callback_query["data"].$a1);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."\nMarca:  ".ucfirst($_SESSION["marca"])."\nModello:  ".ucfirst($_SESSION["modello"])."\nRegione:  ".ucfirst($_SESSION["regione"])."\nProvincia:  ".ucfirst($_SESSION["provincia"])."\nAlimentazione:  ".ucfirst($_SESSION["alimentazione"])."\nPrezzo:  ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
 }
 
 $telegram->sendMessage($content);
