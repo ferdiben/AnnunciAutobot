@@ -19,25 +19,14 @@ function Parametri($text, $sid) {
 
     preg_match_all('!\d+!', $text, $prezzo);
  
- ob_start();
-var_dump($prezzo);
-$result = ob_get_clean();
- 
- 
-$file = 'file.txt';
-$current = file_get_contents($file);
-$current .= $prezzo[0][0];
-file_put_contents($file, $current);
- 
- $_SESSION["prezzo"] = $prezzo[1];
-   for($l=0; $l <= count($prezzo); $l++){
-    for($r=0; $r <= $prezzo[$l][$r]; $r++){
-    if(intval($prezzo[$l][$r]) >= 1000){
+
+     for($l=0; $l <= count($prezzo); $l++){
+     for($r=0; $r <= $prezzo[$l][$r]; $r++){
+     if(intval($prezzo[$l][$r]) >= 1000){
      $_SESSION["prezzo"] = strval($prezzo[$l][$r]);
-    }
-   }
-   }
- 
+        }
+       }
+     }
 
     $cursor_Marche = $Marche_Modelli->find();
 
@@ -119,6 +108,18 @@ file_put_contents($file, $current);
         }
     }
 }
+
+$rangeQuery = array("marca" => ucfirst($_GET["marca"]),
+                            "modello" => ucfirst($_GET["modello"]),
+                            "regione" => ucfirst($_GET["regione"]),
+                            "provincia" => ucfirst($_GET["provincia"]),
+                            "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_GET["alimentazione"])))),
+                            "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo"]), '$lt' => 100000)));
+                        $filter = array_filter($rangeQuery);
+
+                        $q = $collection->findOne($filter);
+$_SESSION["count"] = count($q);
+
 
 function setParametri() {
      $_SESSION['total_elements']=array();
