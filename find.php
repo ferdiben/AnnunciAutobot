@@ -26,16 +26,17 @@ $result = ob_get_clean();
  
 $file = 'file.txt';
 $current = file_get_contents($file);
-$current .= $result;
+$current .= $prezzo[0][0];
 file_put_contents($file, $current);
  
  $_SESSION["prezzo"] = $prezzo[1];
-   //for($l=0; $l <= count($prezzo); $l++){
-    //if(intval($prezzo[$l]) >= 1000){
-     //$_SESSION["prezzo"] = strval($prezzo[$l]);
-    //}
-   //}
- 
+   for($l=0; $l <= count($prezzo); $l++){
+    for($r=0; $r <= $prezzo[$l][$r]; $r++){
+    if(intval($prezzo[$l][$r]) >= 1000){
+     $_SESSION["prezzo"] = strval($prezzo[$l]);
+    }
+   }
+   }
  
 
     $cursor_Marche = $Marche_Modelli->find();
