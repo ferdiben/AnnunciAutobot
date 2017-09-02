@@ -18,6 +18,7 @@
 
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <?php
+			error_reporting(E_ALL);
                         $id = $_GET["id_auto"];
 
                         $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
@@ -128,7 +129,7 @@
         <script src="js/filtri.js"></script>
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<?php 
-                        $utente = $connection->$db->Utenti;
+                        $utente = $db->selectCollection('Utenti');
                         $utente = $utente->findOne(array('email' => $auto["email"]));
                         $utente_telefono = $utente["telefono"];
                         $utente_email = $utente["email"];
