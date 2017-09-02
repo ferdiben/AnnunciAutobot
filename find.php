@@ -17,16 +17,13 @@ function Parametri($text, $sid) {
     session_id($sid);
     session_start();
 
-    preg_match_all('!\d+!', $text, $_SESSION["prezzo"]);
+    preg_match_all('!\d+!', $text, $prezzo);
  
- ob_start();
-var_dump($_SESSION["prezzo"]);
-$result = ob_get_clean();
- 
- $file = 'file.txt';
-$current = file_get_contents($file);
-$current .=  $result;
-file_put_contents($file, $current);
+   foreach($prezzo as $_prezzo){
+    if($_prezzo >= 1000){
+     $_SESSION["prezzo"] = $_prezzo;
+    }
+   }
  
  
 
