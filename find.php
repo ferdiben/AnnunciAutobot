@@ -21,7 +21,7 @@ function Parametri($text, $sid) {
  
    for($l=0; $l <= count($prezzo); $l++){
     if(intval($prezzo[$l]) >= 1000){
-     $_SESSION["prezzo"] = $prezzo[$l];
+     $_SESSION["prezzo"] = strval($prezzo[$l]);
     }
    }
  
