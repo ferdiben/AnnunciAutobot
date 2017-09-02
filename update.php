@@ -11,6 +11,9 @@ $result = $telegram->getData();
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
+$callback_query1 = $telegram->Callback_ID();
+$a1 = $callback_query1["data"];
+
 $file = 'file.txt';
 $current = file_get_contents($file);
 $current .= $callback_query["data"];
@@ -40,7 +43,7 @@ if ($text === "/start" || (!isset($_SESSION["marca"]) && !isset($_SESSION["model
         $_SESSION["$i"]=0;
     $content = array('chat_id' => $chat_id, 'text' => "Benvenuto! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."\nMarca:  ".ucfirst($_SESSION["marca"])."\nModello:  ".ucfirst($_SESSION["modello"])."\nRegione:  ".ucfirst($_SESSION["regione"])."\nProvincia:  ".ucfirst($_SESSION["provincia"])."\nAlimentazione:  ".ucfirst($_SESSION["alimentazione"])."\nPrezzo:  ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]].$callback_query["data"]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Parametri Ricerca:"."\nMarca:  ".ucfirst($_SESSION["marca"])."\nModello:  ".ucfirst($_SESSION["modello"])."\nRegione:  ".ucfirst($_SESSION["regione"])."\nProvincia:  ".ucfirst($_SESSION["provincia"])."\nAlimentazione:  ".ucfirst($_SESSION["alimentazione"])."\nPrezzo:  ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]].$callback_query["data"].$a1);
 }
 
 $telegram->sendMessage($content);
