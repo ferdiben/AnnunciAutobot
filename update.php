@@ -24,11 +24,11 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
- if($callback_query["data"] === "skip"){
-    $_SESSION["$i"]++;
-} else{
+if($callback_query["data"] != "skip" && $callback_query["data"] != ""){
     session_destroy();
-}
+} elseif($callback_query["data"] === "skip"){
+    $_SESSION["$i"]++;
+} 
 
 $option = array( 
     //First row
