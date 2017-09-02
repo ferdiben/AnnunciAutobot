@@ -13,7 +13,7 @@ $a = $callback_query["data"];
 
 $file = 'file.txt';
 $current = file_get_contents($file);
-$current .= "ciao";
+$current .= $callback_query["data"];
 file_put_contents($file, $current);
 
 $text = $result["message"]["text"];
