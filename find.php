@@ -1,10 +1,5 @@
 <?php
 
-//$text1 = "fiorinoffffcampaniaiserniadiesel";
-
-//Parametri($text1);
- 
-
 function Parametri($text, $sid) {
     $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
     $database = $connection->selectDB('annunciauto');
@@ -13,20 +8,20 @@ function Parametri($text, $sid) {
     $Alimentazione = $database->selectCollection('Alimentazione');
     $Auto = $database->selectCollection('Auto');
     $Utenti = $database->selectCollection('Utente');
- 
+
     session_id($sid);
     session_start();
 
     preg_match_all('!\d+!', $text, $prezzo);
- 
 
-     for($l=0; $l <= count($prezzo); $l++){
-     for($r=0; $r <= $prezzo[$l][$r]; $r++){
-     if(intval($prezzo[$l][$r]) >= 1000){
-     $_SESSION["prezzo"] = strval($prezzo[$l][$r]);
+
+    for ($l = 0; $l <= count($prezzo); $l++) {
+        for ($r = 0; $r <= $prezzo[$l][$r]; $r++) {
+            if (intval($prezzo[$l][$r]) >= 1000) {
+                $_SESSION["prezzo"] = strval($prezzo[$l][$r]);
+            }
         }
-       }
-     }
+    }
 
     $cursor_Marche = $Marche_Modelli->find();
 
@@ -110,19 +105,18 @@ function Parametri($text, $sid) {
 }
 
 $rangeQuery = array("marca" => ucfirst($_GET["marca"]),
-                            "modello" => ucfirst($_GET["modello"]),
-                            "regione" => ucfirst($_GET["regione"]),
-                            "provincia" => ucfirst($_GET["provincia"]),
-                            "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_GET["alimentazione"])))),
-                            "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo"]), '$lt' => 100000)));
-                        $filter = array_filter($rangeQuery);
+    "modello" => ucfirst($_GET["modello"]),
+    "regione" => ucfirst($_GET["regione"]),
+    "provincia" => ucfirst($_GET["provincia"]),
+    "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_GET["alimentazione"])))),
+    "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo"]), '$lt' => 100000)));
+$filter = array_filter($rangeQuery);
 
-                        $q = $collection->findOne($filter);
+$q = $collection->findOne($filter);
 $_SESSION["count"] = count($q);
 
-
 function setParametri() {
-     $_SESSION['total_elements']=array();
+    $_SESSION['total_elements'] = array();
     if (!isset($_SESSION["marca"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire la Marca?");
     }
@@ -142,7 +136,7 @@ function setParametri() {
     if (!isset($_SESSION["alimentazione"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire l'Alimentazione?");
     }
- 
+
     if (!isset($_SESSION["prezzo"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire il prezzo?");
     }
@@ -154,5 +148,4 @@ echo($_SESSION["modello"]);
 echo($_SESSION["regione"]);
 echo($_SESSION["provincia"]);
 echo($_SESSION["alimentazione"]);
-
 ?>
