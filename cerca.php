@@ -31,7 +31,7 @@
                             "regione" => ucfirst($_GET["regione"]),
                             "provincia" => ucfirst($_GET["provincia"]),
                             "alimentazione" => array_filter(array('$in' => unserialize(ucfirst($_GET["alimentazione"])))),
-                            "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo_min"]), '$lt' => intval($_GET["prezzo_max"]))));
+                            "prezzo" => array_filter(array('$gt' => intval($_GET["prezzo"]), '$lt' => 100000)));
 
                         $filter = array_filter($rangeQuery);
 
