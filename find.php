@@ -18,6 +18,17 @@ function Parametri($text, $sid) {
     session_start();
 
     preg_match_all('!\d+!', $text, $prezzo);
+ 
+ ob_start();
+var_dump($prezzo);
+$result = ob_get_clean();
+ 
+ 
+$file = 'file.txt';
+$current = file_get_contents($file);
+$current .= $result;
+file_put_contents($file, $current);
+ 
  $_SESSION["prezzo"] = $prezzo[1];
    //for($l=0; $l <= count($prezzo); $l++){
     //if(intval($prezzo[$l]) >= 1000){
