@@ -13,13 +13,11 @@ function Parametri($text, $sid) {
     $Alimentazione = $database->selectCollection('Alimentazione');
     $Auto = $database->selectCollection('Auto');
     $Utenti = $database->selectCollection('Utente');
-        session_id($sid);
+ 
+    session_id($sid);
+    session_start();
 
-     session_start();
-
-
-
-
+    preg_match_all('!\d+!', $text, $_SESSION["prezzo"]);
 
     $cursor_Marche = $Marche_Modelli->find();
 
@@ -122,6 +120,10 @@ function setParametri() {
 
     if (!isset($_SESSION["alimentazione"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire l'Alimentazione?");
+    }
+ 
+    if (!isset($_SESSION["prezzo"])) {
+        array_push($_SESSION['total_elements'], "Vuoi inserire il prezzo?");
     }
     return $_SESSION['total_elements'];
 }
