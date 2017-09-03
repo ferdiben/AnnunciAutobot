@@ -28,6 +28,7 @@
 
 
                         $annuncio = $collection->find(array('_id' => new MongoId($id)));
+	    		var_dump(iterator_to_array($annuncio));
 					
 
                         foreach ($annuncio as $auto) {
