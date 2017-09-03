@@ -25,7 +25,6 @@
                     <div class = "row">
 
                         <?php	
-			    error_reporting(E_ALL);
 						
                         $rangeQuery = array("marca" => ucfirst($_GET["marca"]),
                             "modello" => ucfirst($_GET["modello"]),
@@ -75,7 +74,6 @@
 
                         if ($q != null) {
                             foreach ($a as $doc) {
-				    var_dump($doc["_id"]);
                                 $immagin = $doc["immagine"];
                                 ?>
                                 <div style="background-color: rgba(21,21,21,0.7); color:#FFF;" class = "col-sm-4 col-lg-4 col-md-4">
