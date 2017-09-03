@@ -9,14 +9,14 @@ $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
 $post_id = telegram_getid( $telegram_user_id );
-$username = get_post_meta($post_id, 'telegram_username', true);;
+//$username = get_post_meta($post_id, 'telegram_username', true);;
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
 
 $file = 'file.txt';
 $current = file_get_contents($file);
-$current .= $callback_query1["data"];
+$current .= var_dump($result);
 file_put_contents($file, $current);
 
 $text = $result["message"]["text"];
