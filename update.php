@@ -24,7 +24,7 @@ Parametri($text, $chat_id);
 
 $questions = setParametri();
 
-if($callback_query["data"] === "new"){
+if($callback_query["data"] === "new" || $text === "/nuovaricerca"){
     session_destroy();
 } elseif($callback_query["data"] === "skip"){
     $_SESSION["$i"]++;
