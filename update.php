@@ -13,10 +13,13 @@ $post_id = telegram_getid( $telegram_user_id );
 $callback_query = $telegram->Callback_Query();
 $a = $callback_query["data"];
 
+ob_start();
+var_dump($result);
+$result1 = ob_get_clean();
 
 $file = 'file.txt';
 $current = file_get_contents($file);
-$current .= var_dump($result);
+$current .= $result1;
 file_put_contents($file, $current);
 
 $text = $result["message"]["text"];
