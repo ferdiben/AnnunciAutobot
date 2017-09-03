@@ -18,7 +18,6 @@
 
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <?php
-			error_reporting(E_ALL);
                         $id = $_GET["id_auto"];
 
                         $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
@@ -27,9 +26,7 @@
                        
 
 
-                        $annuncio = $collection->find(array('_id' => $id));
-	    		var_dump(iterator_to_array($annuncio));
-					
+                        $annuncio = $collection->find(array('_id' => $id));					
 
                         foreach ($annuncio as $auto) {
                             foreach ($auto['immagine'] as $img[]) {
