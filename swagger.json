@@ -1,0 +1,897 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "AnnunciAuto API",
+        "version": "1.0.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/v1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/getAnnunci": {
+            "get": {
+                "description": "Questo metodo interagendo con MongoDB restituisce tutti i documenti presenti nella collezione Auto.\n",
+                "tags": [
+                    "Annunci"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista Annunci in formato JSON",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Annunci"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAnnuncio": {
+            "get": {
+                "description": "Questo metodo interagendo con MongoDB restituise un singolo annuncio della collezione Auto",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "query",
+                        "description": "Id di uno specifico annuncio.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Annunci"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Documento Annuncio in formato JSON",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Annuncio"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/adAnnuncio": {
+            "post": {
+                "description": "Questo metodo inserisce un nuovo documento nella collezione Auto del database.",
+                "parameters": [
+                    {
+                        "name": "marca",
+                        "in": "query",
+                        "description": "Marca dell'auto.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "modello",
+                        "in": "query",
+                        "description": "Modello dell'auto.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "prezzo",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "long int",
+                        "description": "Prezzo dell'auto.",
+                        "required": true
+                    },
+                    {
+                        "name": "alimentazione",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Alimentazione dell'auto."
+                    },
+                    {
+                        "name": "regione",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Regione del venditore."
+                    },
+                    {
+                        "name": "provincia",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provincia del venditore."
+                    },
+                    {
+                        "name": "immagini",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Immagini dell'auto."
+                    }
+                ],
+                "tags": [
+                    "Annunci"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Annuncio inserito con successo.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Annuncio Inserito"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/ricercaAnnunci": {
+            "get": {
+                "description": "Restituisce una lista di annunci filtrata.",
+                "parameters": [
+                    {
+                        "name": "marca",
+                        "in": "query",
+                        "description": "Marca dell'auto da cercare.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "modello",
+                        "in": "query",
+                        "description": "Modello dell'auto da cercare.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "prezzo",
+                        "in": "query",
+                        "type": "integer",
+                        "format": "long int",
+                        "description": "Prezzo dell'auto da cercare."
+                    },
+                    {
+                        "name": "alimentazione",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Alimentazione dell'auto da cercare."
+                    },
+                    {
+                        "name": "regione",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Regione dell'auto da cercare."
+                    },
+                    {
+                        "name": "provincia",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provincia dell'auto da cercare."
+                    }
+                ],
+                "tags": [
+                    "Annunci"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista filtrata di annunci in formato JSON",
+                        "schema": {
+                            "$ref": "#/definitions/Ricerca"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/Registrazione": {
+            "post": {
+                "description": "Registra un nuovo utente e inserisce il documento nella collezione Utenti del database.",
+                "parameters": [
+                    {
+                        "name": "nome_utente",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Nome dell'utente.",
+                        "required": true
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Email dell'utente.",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Password scelta dell'utente.",
+                        "required": true
+                    },
+                    {
+                        "name": "reinserisci password",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Controllo password.",
+                        "required": true
+                    },
+                    {
+                        "name": "data_di_nascita",
+                        "in": "query",
+                        "type": "date",
+                        "description": "Data di nascita dell'utente.",
+                        "required": true
+                    },
+                    {
+                        "name": "sesso",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Sesso"
+                    },
+                    {
+                        "name": "telefono",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Numero di telefono dell'utente."
+                    },
+                    {
+                        "name": "image",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Immagine del profilo dell'utente."
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Registrazione avvenuta con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Registrazione"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/addPreferiti": {
+            "post": {
+                "description": "Aggiunge un nuovo annuncio alla lista preferiti dell'utente.",
+                "parameters": [
+                    {
+                        "name": "id_auto",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Id dell'auto da aggiungere ai preferiti.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Annuncio aggiunto ai preferiti con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Aggiungi ai Preferiti"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/getPreferiti": {
+            "get": {
+                "description": "Questo metodo restituisce la lista preferiti di un singolo utente.",
+                "parameters": [
+                    {
+                        "name": "id_utente",
+                        "in": "query",
+                        "description": "Id di uno specifico utente.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista preferiti in formato JSON",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Lista Preferiti"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/getMieiAnnunci": {
+            "get": {
+                "description": "Questo metodo restituisce la lista delgi annunci inseriti da un singolo utente.",
+                "parameters": [
+                    {
+                        "name": "email_utente",
+                        "in": "query",
+                        "description": "Email di uno specifico utente.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista annunci in formato JSON",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Lista Miei Annunci"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "description": "Aggiunge un nuovo annuncio alla lista preferiti dell'utente.",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Email dell'utente.",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Password dell'utente.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Parametri utente in formato JSON.",
+                        "schema": {
+                            "$ref": "#/definitions/Login"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/removePreferiti": {
+            "delete": {
+                "description": "Rimuove un annuncio dalla lista preferiti dell'utente.",
+                "parameters": [
+                    {
+                        "name": "id_auto",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Id dell'auto da rimuovere dai preferiti.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Annuncio rimosso dai preferiti con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Rimuovi dai Preferiti"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/removeAnnuncio": {
+            "delete": {
+                "description": "Rimuove un annuncio dalla lista degli annunci dell'utente.",
+                "parameters": [
+                    {
+                        "name": "id_auto",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Id dell'auto da rimuovere.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Utenti"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Annuncio rimosso con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Rimuovi Annuncio"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/addMarca": {
+            "post": {
+                "description": "Aggiunge una nuova marca nel database.",
+                "parameters": [
+                    {
+                        "name": "marca",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Marca da aggiungere.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Admin"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Annuncio rimosso dai preferiti con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Aggiungi Marca"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/removeMarca": {
+            "delete": {
+                "description": "Rimuove una marca dal database.",
+                "parameters": [
+                    {
+                        "name": "marca",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Marca da rimuovere.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Admin"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Marca rimossa con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Rimuovi Marca"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/addModello": {
+            "post": {
+                "description": "Aggiunge un nuovo modello nel database.",
+                "parameters": [
+                    {
+                        "name": "marca",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Marca di appartenenza del modello.",
+                        "required": true
+                    },
+                    {
+                        "name": "modello",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Modello da aggiungere.",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Admin"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Modello aggiunto con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Aggiungi Modello"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/removeModello": {
+            "delete": {
+                "description": "Rimuove un modello dal database.",
+                "parameters": [
+                    {
+                        "name": "modello",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Modello da rimuovere",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Admin"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Marca rimossa con successo",
+                        "schema": {
+                            "$ref": "#/definitions/Rimuovi Modello"
+                        }
+                    },
+                    "default": {
+                        "description": "Errore",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Annunci": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "594858aaecaa78ac0d0041a7"
+                },
+                "prezzo": {
+                    "type": "integer",
+                    "description": "1000$"
+                },
+                "marca": {
+                    "type": "string",
+                    "description": "Fiat"
+                },
+                "modello": {
+                    "type": "string",
+                    "description": "Uno"
+                },
+                "alimentazione": {
+                    "type": "string",
+                    "description": "Benzina"
+                },
+                "regione": {
+                    "type": "string",
+                    "description": "Molise"
+                },
+                "provincia": {
+                    "type": "string",
+                    "description": "Isernia."
+                },
+                "descrizione": {
+                    "type": "string",
+                    "description": "Auto d'epoca in perfette condizioni..."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "bianchi.antonio@rossi.com"
+                },
+                "images": {
+                    "type": "string",
+                    "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+                }
+            }
+        },
+        "Annuncio": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "594858aaecaa78ac0d0041a7"
+                },
+                "prezzo": {
+                    "type": "integer",
+                    "description": "1000$"
+                },
+                "marca": {
+                    "type": "string",
+                    "description": "Fiat"
+                },
+                "modello": {
+                    "type": "string",
+                    "description": "Uno"
+                },
+                "alimentazione": {
+                    "type": "string",
+                    "description": "Benzina"
+                },
+                "regione": {
+                    "type": "string",
+                    "description": "Molise"
+                },
+                "provincia": {
+                    "type": "string",
+                    "description": "Isernia."
+                },
+                "descrizione": {
+                    "type": "string",
+                    "description": "Auto d'epoca in perfette condizioni..."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "bianchi.antonio@rossi.com"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+                }
+            }
+        },
+        "Annuncio Inserito": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "Inserito"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Email del venditore"
+                }
+            }
+        },
+        "Ricerca": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "594858aaecaa78ac0d0041a7"
+                },
+                "prezzo": {
+                    "type": "integer",
+                    "description": "1000$"
+                },
+                "marca": {
+                    "type": "string",
+                    "description": "Fiat"
+                },
+                "modello": {
+                    "type": "string",
+                    "description": "Uno"
+                },
+                "alimentazione": {
+                    "type": "string",
+                    "description": "Benzina"
+                },
+                "regione": {
+                    "type": "string",
+                    "description": "Molise"
+                },
+                "provincia": {
+                    "type": "string",
+                    "description": "Isernia."
+                },
+                "descrizione": {
+                    "type": "string",
+                    "description": "Auto d'epoca in perfette condizioni..."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "bianchi.antonio@rossi.com"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+                }
+            }
+        },
+        "Registrazione": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "registrato"
+                }
+            }
+        },
+        "Lista Preferiti": {
+            "type": "object",
+            "properties": {
+                "preferiti": {
+                    "type": "array",
+                    "description": "594858aaecaa78ac0d0041a7           5948dcff208067380a0041a7"
+                }
+            }
+        },
+        "Lista Miei Annunci": {
+            "type": "object",
+            "properties": {
+                "annunci": {
+                    "type": "array",
+                    "description": "594858aaecaa78ac0d0041a7           59561f40ecaa7865140041a7"
+                }
+            }
+        },
+        "Aggiungi ai Preferiti": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "aggiunto"
+                }
+            }
+        },
+        "Rimuovi dai Preferiti": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "rimosso"
+                }
+            }
+        },
+        "Rimuovi Annuncio": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "rimosso"
+                }
+            }
+        },
+        "Rimuovi Marca": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "rimossa"
+                }
+            }
+        },
+        "Rimuovi Modello": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "rimosso"
+                }
+            }
+        },
+        "Aggiungi Marca": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "aggiunta"
+                }
+            }
+        },
+        "Aggiungi Modello": {
+            "type": "object",
+            "properties": {
+                "stato": {
+                    "type": "string",
+                    "description": "aggiunto"
+                }
+            }
+        },
+        "Login": {
+            "type": "object",
+            "properties": {
+                "nome_utente": {
+                    "type": "string",
+                    "description": "Federico"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "federico@aaa.com"
+                },
+                "data_di_nascita": {
+                    "type": "integer",
+                    "description": "04/10/1990"
+                },
+                "sesso": {
+                    "type": "string",
+                    "description": "Maschio"
+                },
+                "telefono": {
+                    "type": "integer",
+                    "format": "long int",
+                    "description": "333 4353633"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
