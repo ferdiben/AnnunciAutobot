@@ -621,6 +621,7 @@
         "marca": {
           "type": "string",
           "description": "Fiat"
+          "example": "Fiat"
         },
         "modello": {
           "type": "string",
