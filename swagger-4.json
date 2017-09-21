@@ -568,7 +568,7 @@
           "default": {
             "description": "Errore",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/Error"
             }
           }
         }
