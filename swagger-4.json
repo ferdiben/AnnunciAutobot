@@ -16,7 +16,7 @@
       "get": {
         "description": "Questo metodo interagendo con MongoDB restituisce tutti i documenti presenti nella collezione Auto.\n",
         "tags": [
-          "Annunci"
+          "Utente Guest"
         ],
         "responses": {
           "200": {
@@ -50,7 +50,7 @@
           }
         ],
         "tags": [
-          "Annunci"
+          "Utente Guest"
         ],
         "responses": {
           "200": {
@@ -71,7 +71,7 @@
         }
       }
     },
-    "/adAnnuncio": {
+    "/addAnnuncio": {
       "post": {
         "description": "Questo metodo inserisce un nuovo documento nella collezione Auto del database.",
         "parameters": [
@@ -123,7 +123,7 @@
           }
         ],
         "tags": [
-          "Annunci"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -187,7 +187,7 @@
           }
         ],
         "tags": [
-          "Annunci"
+          "Utente Guest"
         ],
         "responses": {
           "200": {
@@ -257,7 +257,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Guest"
         ],
         "responses": {
           "200": {
@@ -288,7 +288,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -319,7 +319,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -345,7 +345,7 @@
         "description": "Questo metodo restituisce la lista delgi annunci inseriti da un singolo utente.",
         "parameters": [
           {
-            "name": "email_utente",
+            "name": "id_utente",
             "in": "query",
             "description": "Email di uno specifico utente.",
             "required": true,
@@ -353,7 +353,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -394,7 +394,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -425,7 +425,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -456,7 +456,7 @@
           }
         ],
         "tags": [
-          "Utenti"
+          "Utente Registrato"
         ],
         "responses": {
           "200": {
@@ -568,7 +568,7 @@
           "default": {
             "description": "Errore",
             "schema": {
-              "$ref": "#/definitions/Error"
+              "$ref": "#/definitions/Error"
             }
           }
         }
@@ -612,44 +612,43 @@
       "properties": {
         "_id": {
           "type": "string",
-          "description": "594858aaecaa78ac0d0041a7"
+          "example": "594858aaecaa78ac0d0041a7"
         },
         "prezzo": {
           "type": "integer",
-          "description": "1000$"
+          "example": "1000$"
         },
         "marca": {
           "type": "string",
-          "description": "Fiat"
           "example": "Fiat"
         },
         "modello": {
           "type": "string",
-          "description": "Uno"
+          "example": "Uno"
         },
         "alimentazione": {
           "type": "string",
-          "description": "Benzina"
+          "example": "Benzina"
         },
         "regione": {
           "type": "string",
-          "description": "Molise"
+          "example": "Molise"
         },
         "provincia": {
           "type": "string",
-          "description": "Isernia."
+          "example": "Isernia."
         },
         "descrizione": {
           "type": "string",
-          "description": "Auto d'epoca in perfette condizioni..."
+          "example": "Auto d'epoca in perfette condizioni..."
         },
         "email": {
           "type": "string",
-          "description": "bianchi.antonio@rossi.com"
+          "example": "bianchi.antonio@rossi.com"
         },
         "images": {
           "type": "string",
-          "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+          "example": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
         }
       }
     },
@@ -658,43 +657,43 @@
       "properties": {
         "_id": {
           "type": "string",
-          "description": "594858aaecaa78ac0d0041a7"
+          "example": "594858aaecaa78ac0d0041a7"
         },
         "prezzo": {
           "type": "integer",
-          "description": "1000$"
+          "example": "1000$"
         },
         "marca": {
           "type": "string",
-          "description": "Fiat"
+          "example": "Fiat"
         },
         "modello": {
           "type": "string",
-          "description": "Uno"
+          "example": "Uno"
         },
         "alimentazione": {
           "type": "string",
-          "description": "Benzina"
+          "example": "Benzina"
         },
         "regione": {
           "type": "string",
-          "description": "Molise"
+          "example": "Molise"
         },
         "provincia": {
           "type": "string",
-          "description": "Isernia."
+          "example": "Isernia."
         },
         "descrizione": {
           "type": "string",
-          "description": "Auto d'epoca in perfette condizioni..."
+          "example": "Auto d'epoca in perfette condizioni..."
         },
         "email": {
           "type": "string",
-          "description": "bianchi.antonio@rossi.com"
+          "example": "bianchi.antonio@rossi.com"
         },
         "image": {
           "type": "string",
-          "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+          "example": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
         }
       }
     },
@@ -703,11 +702,11 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "Inserito"
+          "example": "Inserito"
         },
         "email": {
           "type": "string",
-          "description": "Email del venditore"
+          "example": "bianchi.rossi@verdi.it"
         }
       }
     },
@@ -716,43 +715,43 @@
       "properties": {
         "_id": {
           "type": "string",
-          "description": "594858aaecaa78ac0d0041a7"
+          "example": "594858aaecaa78ac0d0041a7"
         },
         "prezzo": {
           "type": "integer",
-          "description": "1000$"
+          "example": "1000$"
         },
         "marca": {
           "type": "string",
-          "description": "Fiat"
+          "example": "Fiat"
         },
         "modello": {
           "type": "string",
-          "description": "Uno"
+          "example": "Uno"
         },
         "alimentazione": {
           "type": "string",
-          "description": "Benzina"
+          "example": "Benzina"
         },
         "regione": {
           "type": "string",
-          "description": "Molise"
+          "example": "Molise"
         },
         "provincia": {
           "type": "string",
-          "description": "Isernia."
+          "example": "Isernia."
         },
         "descrizione": {
           "type": "string",
-          "description": "Auto d'epoca in perfette condizioni..."
+          "example": "Auto d'epoca in perfette condizioni..."
         },
         "email": {
           "type": "string",
-          "description": "bianchi.antonio@rossi.com"
+          "example": "bianchi.antonio@rossi.com"
         },
         "image": {
           "type": "string",
-          "description": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
+          "example": "/AnnunciAuto/img/0315971713009.jpg,            /AnnunciAuto/img/0315971713011.jpg"
         }
       }
     },
@@ -761,7 +760,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "registrato"
+          "example": "registrato"
         }
       }
     },
@@ -770,7 +769,10 @@
       "properties": {
         "preferiti": {
           "type": "string",
-          "description": "ciao"
+          "example": [
+            "594858aaecaa78ac0d0041a7",
+            "59561f40ecaa7865140041a7"
+          ]
         }
       }
     },
@@ -779,7 +781,10 @@
       "properties": {
         "annunci": {
           "type": "string",
-          "description": "ss"
+          "example": [
+            "594858aaecaa78ac0d0041a7",
+            "59561f40ecaa7865140041a7"
+          ]
         }
       }
     },
@@ -788,7 +793,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "aggiunto"
+          "example": "aggiunto"
         }
       }
     },
@@ -797,7 +802,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "rimosso"
+          "example": "rimosso"
         }
       }
     },
@@ -816,7 +821,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "rimossa"
+          "example": "rimossa"
         }
       }
     },
@@ -825,7 +830,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "rimosso"
+          "example": "rimosso"
         }
       }
     },
@@ -834,7 +839,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "aggiunta"
+          "example": "aggiunta"
         }
       }
     },
@@ -843,7 +848,7 @@
       "properties": {
         "stato": {
           "type": "string",
-          "description": "aggiunto"
+          "example": "aggiunto"
         }
       }
     },
@@ -852,24 +857,24 @@
       "properties": {
         "nome_utente": {
           "type": "string",
-          "description": "Federico"
+          "example": "Federico"
         },
         "email": {
           "type": "string",
-          "description": "federico@aaa.com"
+          "example": "federico@aaa.com"
         },
         "data_di_nascita": {
           "type": "integer",
-          "description": "04/10/1990"
+          "example": "04/10/1990"
         },
         "sesso": {
           "type": "string",
-          "description": "Maschio"
+          "example": "Maschio"
         },
         "telefono": {
           "type": "integer",
           "format": "long int",
-          "description": "333 4353633"
+          "example": "333 4353633"
         }
       }
     },
