@@ -46,7 +46,11 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
 }
 
-
+if(isset($_SESSION["regione"])){
+$regione = "in".$_SESSION["regione"];
+} else{
+$regione = "";
+}
 
 $option = array( 
     //First row
@@ -58,7 +62,7 @@ if ($text === "/start" || $text === "/nuova_ricerca" || $callback_query["data"] 
     $_SESSION["$h"]=0;
     $content = array('chat_id' => $chat_id, 'text' => "Ciao ".$username."! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:"."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".ucfirst($_SESSION["regione"])." ".ucfirst($_SESSION["provincia"])." ".ucfirst($_SESSION["alimentazione"])." ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:"."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".ucfirst($_SESSION["provincia"])." ".ucfirst($_SESSION["alimentazione"])." ".$_SESSION["prezzo"]."\n"."_._._._._._._._._._._"."\nLa tua ricerca ha prodotto ".$_SESSION['count']."  risultati"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
 }
 
 $telegram->sendMessage($content);
