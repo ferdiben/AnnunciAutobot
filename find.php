@@ -119,26 +119,33 @@ function setParametri() {
     $_SESSION['total_elements'] = array();
     if (!isset($_SESSION["marca"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire la Marca?");
+        array_push($_SESSION['total_elements'], "Che marca vuoi cercare?");
     }
 
     if (!isset($_SESSION["modello"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire il Modello?");
+        array_push($_SESSION['total_elements'], "Che modello vuoi cercare?");
+
     }
 
     if (!isset($_SESSION["regione"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire la Regione?");
+        array_push($_SESSION['total_elements'], "In che regione vuoi cercare?");
     }
 
     if (!isset($_SESSION["provincia"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire la Provincia?");
+        array_push($_SESSION['total_elements'], "In che provincia vuoi cercare?");
     }
 
     if (!isset($_SESSION["alimentazione"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire l'Alimentazione?");
+        array_push($_SESSION['total_elements'], "Con quale alimentazione vuoi cercare?")
     }
 
     if (!isset($_SESSION["prezzo"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire il prezzo?");
+        array_push($_SESSION['total_elements'], "Da quale prezzo vuoi partire?")
     }
     return $_SESSION['total_elements'];
 }
