@@ -26,7 +26,7 @@ $text = strtolower($text);
 
 $_SESSION["$h"]=0;
 
-if($_SESSION["$h"] != 0){
+if($_SESSION["$h"] == 0){
 Parametri($text, $chat_id);
     $_SESSION["$h"]++;
 }
