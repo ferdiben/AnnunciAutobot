@@ -27,41 +27,7 @@ $text = strtolower($text);
 
 if($_SESSION["$h"] == 0){
     $_SESSION["$h"]++;
-     $connection = new MongoClient('mongodb://SvensonTeam:Capracotta.1@ds157833.mlab.com:57833/annunciauto');
-    $database = $connection->selectDB('annunciauto');
-    $Marche_Modelli = $database->selectCollection('Marche_Modelli');
-    $Regioni_Province = $database->selectCollection('Regioni_Province');
-    $Alimentazione = $database->selectCollection('Alimentazione');
-    $Auto = $database->selectCollection('Auto');
-    $Utenti = $database->selectCollection('Utente');
-    session_id($chat_id);
-    session_start();
-    preg_match_all('!\d+!', $text, $prezzo);
-    for ($l = 0; $l <= count($prezzo); $l++) {
-        for ($r = 0; $r <= $prezzo[$l][$r]; $r++) {
-            if (intval($prezzo[$l][$r]) >= 1000) {
-                $_SESSION["prezzo"] = strval($prezzo[$l][$r]);
-            }
-        }
-    }
-    $cursor_Marche = $Marche_Modelli->find();
-    $i = 0;
-    foreach ($cursor_Marche as $_marca) {
-        $marche[$i] = $_marca['marca'];
-        $cursor_Modelli = $Marche_Modelli->findOne(array("marca" => $marche[$i]));
-        $_mod = $cursor_Modelli["modello"];
-        if (strpos($text, $marche[$i]) !== false) {
-            $_SESSION["marca"] = $marche[$i];
-            $_SESSION["modello"] = NULL;
-            foreach ($_mod as $_modelli) {
-                if (strpos($text, $_modelli) !== false) {
-                    $_SESSION["modello"] = $_modelli;
-                }
-            }
-        }
-        $i++;
-    }
-   break; 
+    Parametri($text, $chat_id); 
 }
 
 $questions = setParametri();
