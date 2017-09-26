@@ -86,7 +86,7 @@ if ($text === "/start" || $text === "/nuova_ricerca" || $callback_query["data"] 
     $_SESSION["$h"]=0;
     $content = array('chat_id' => $chat_id, 'text' => $saluto.$username."! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:".$data."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".$provincia." ".$alimentazione." ".$prezzo."\n"."_._._._._._._._._._._"."\nIn base alle tue richieste ho trovato ".$_SESSION['count']."  annunci"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:"."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".$provincia." ".$alimentazione." ".$prezzo."\n"."_._._._._._._._._._._"."\nIn base alle tue richieste ho trovato ".$_SESSION['count']."  annunci"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
 }
 
 $telegram->sendMessage($content);
