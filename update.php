@@ -34,7 +34,7 @@ $questions = setParametri();
 
 if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
     session_destroy();
-} elseif($callback_query["data"] === "skip"){
+} elseif($callback_query["data"] === "skip"  && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
 } elseif($text === "si"){
     $_SESSION["$i"]++;
