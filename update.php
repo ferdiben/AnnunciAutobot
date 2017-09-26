@@ -61,7 +61,7 @@ if($_SESSION["$h"] == 0){
         }
         $i++;
     }
-    
+   break; 
 }
 
 $questions = setParametri();
