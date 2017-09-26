@@ -38,10 +38,12 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
 } elseif($text === "si"){
     $_SESSION["$i"]++;
-} elseif($text === "no"){
-    $_SESSION["$i"] = $_SESSION["$i"] + 2;
 } elseif($callback_query["data"] === "skip" && (intval($_SESSION["$i"])%2 != 0)){
      $_SESSION["$i"]++;
+} elseif($text === "no" && (intval($_SESSION["$i"])%2 != 0)){
+     $_SESSION["$i"]++;
+} elseif($text === "no" && (intval($_SESSION["$i"])%2 == 0)){
+    $_SESSION["$i"] = $_SESSION["$i"] + 2;
 }
 
 $option = array( 
