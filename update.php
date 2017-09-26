@@ -8,9 +8,10 @@ $bot_token = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
 $telegram = new Telegram($bot_token);
 $chat_id = $telegram->ChatID();
 $result = $telegram->getData();
+$timestamp = $telegram->Date();
 $callback_query = $telegram->Callback_Query();
 $username = $result["message"]["chat"]["first_name"];
-
+$data = gmdate("Y-m-d\TH:i:s\Z", $timestamp);
 ob_start();
 //session_start();
 var_dump($result);
@@ -80,7 +81,7 @@ if ($text === "/start" || $text === "/nuova_ricerca" || $callback_query["data"] 
     $_SESSION["$h"]=0;
     $content = array('chat_id' => $chat_id, 'text' => "Ciao ".$username."! Inserisci l'auto da cercare");
 } else {
-$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:"."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".$provincia." ".$alimentazione." ".$prezzo."\n"."_._._._._._._._._._._"."\nIn base alle tue richieste ho trovato ".$_SESSION['count']."  annunci"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
+$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:".$data."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".$provincia." ".$alimentazione." ".$prezzo."\n"."_._._._._._._._._._._"."\nIn base alle tue richieste ho trovato ".$_SESSION['count']."  annunci"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
 }
 
 $telegram->sendMessage($content);
