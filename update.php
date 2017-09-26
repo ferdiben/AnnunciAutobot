@@ -33,7 +33,7 @@ if($_SESSION["$h"] == 0){
 
 $questions = setParametri();
 
-if($data >= 4 $$ $data <= 13){
+if($data >= 4 && $data <= 13){
 $saluto = "Buongiorno ";
 }else{
 $saluto = "Buon pomeriggio "; 
