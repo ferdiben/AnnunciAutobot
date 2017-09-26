@@ -25,12 +25,7 @@ $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
 
-
-
-if($_SESSION["$i"] == 0){
 Parametri($text, $chat_id);
-}
-
 
 $questions = setParametri();
 
