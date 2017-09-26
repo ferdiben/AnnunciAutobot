@@ -12,6 +12,7 @@ $callback_query = $telegram->Callback_Query();
 $username = $result["message"]["chat"]["first_name"];
 
 ob_start();
+session_start();
 var_dump($result);
 $result1 = ob_get_clean();
 
