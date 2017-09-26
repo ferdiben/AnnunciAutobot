@@ -34,7 +34,7 @@ if($_SESSION["$h"] == 0){
     $Alimentazione = $database->selectCollection('Alimentazione');
     $Auto = $database->selectCollection('Auto');
     $Utenti = $database->selectCollection('Utente');
-    session_id($sid);
+    session_id($chat_id);
     session_start();
     preg_match_all('!\d+!', $text, $prezzo);
     for ($l = 0; $l <= count($prezzo); $l++) {
