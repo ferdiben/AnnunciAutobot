@@ -113,7 +113,7 @@ function Parametri($text, $sid) {
 
     $q = $Auto->find($filter);
     $_SESSION["count"] =  count(iterator_to_array($q));
-    if(true) break;
+    exit();
 }
 
 function setParametri() {
