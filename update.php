@@ -11,7 +11,7 @@ $result = $telegram->getData();
 $timestamp = $telegram->Date();
 $callback_query = $telegram->Callback_Query();
 $username = $result["message"]["chat"]["first_name"];
-$data = gmdate("Y-m-d\TH:i:s\Z", $timestamp);
+$data = gmdate("H", $timestamp);
 ob_start();
 //session_start();
 var_dump($result);
