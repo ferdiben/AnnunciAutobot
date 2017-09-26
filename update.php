@@ -24,7 +24,7 @@ $text = $result["message"]["text"];
 $text = trim($text);
 $text = strtolower($text);
 
-if(!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]) && !isset($_SESSION["prezzo"]){
+if(!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]) && !isset($_SESSION["prezzo"])){
 Parametri($text, $chat_id);
 }
 
