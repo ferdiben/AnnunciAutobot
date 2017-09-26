@@ -140,12 +140,12 @@ function setParametri() {
 
     if (!isset($_SESSION["alimentazione"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire l'Alimentazione?");
-        array_push($_SESSION['total_elements'], "Con quale alimentazione vuoi cercare?")
+        array_push($_SESSION['total_elements'], "Con quale alimentazione vuoi cercare?");
     }
 
     if (!isset($_SESSION["prezzo"])) {
         array_push($_SESSION['total_elements'], "Vuoi inserire il prezzo?");
-        array_push($_SESSION['total_elements'], "Da quale prezzo vuoi partire?")
+        array_push($_SESSION['total_elements'], "Da quale prezzo vuoi partire?");
     }
     return $_SESSION['total_elements'];
 }
