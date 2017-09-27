@@ -48,7 +48,7 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
 } elseif($text === "no" && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
 } elseif(intval($_SESSION["$i"])%2 != 0){
-        $_SESSION["$i"]--;
+        $_SESSION["$i"] = 0;
 }
 
 if(isset($_SESSION["regione"])){
