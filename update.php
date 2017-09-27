@@ -29,6 +29,7 @@ Parametri($text, $chat_id);
 
 
 $questions = setParametri();
+$var=true;
 
 
 if($data >= 4 && $data <= 13){
@@ -51,7 +52,7 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
 } elseif($var == true){
    $_SESSION["$i"]--;
 }
-$var=true;
+
 if(isset($_SESSION["regione"])){
 $regione = "in ".ucfirst($_SESSION["regione"]);
 } else{
