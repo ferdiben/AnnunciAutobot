@@ -13,7 +13,6 @@ $callback_query = $telegram->Callback_Query();
 $username = $result["message"]["chat"]["first_name"];
 $data = gmdate("H", $timestamp) + 2;
 ob_start();
-//session_start();
 var_dump($result);
 $result1 = ob_get_clean();
 
@@ -42,13 +41,15 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
     session_destroy();
 } elseif($callback_query["data"] === "skip"  && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
-} elseif($text === "si"){
+} elseif($text === "si" && (intval($_SESSION["$i"])%2 != 0)){
     $_SESSION["$i"]++;
 } elseif($callback_query["data"] === "skip" && (intval($_SESSION["$i"])%2 != 0)){
      $_SESSION["$i"]++;
 } elseif($text === "no" && (intval($_SESSION["$i"])%2 != 0)){
      $_SESSION["$i"]++;
 } elseif($text === "no" && (intval($_SESSION["$i"])%2 == 0)){
+    $_SESSION["$i"] = $_SESSION["$i"] + 2;
+} elseif($text === "si" && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
 }
 
@@ -72,6 +73,7 @@ $prezzo = "a partire da ".$_SESSION["prezzo"]."€";
 } else{
 $prezzo = "";
 }
+
 if(isset($_SESSION["marca"]) && isset($_SESSION["modello"]) && isset($_SESSION["regione"]) && isset($_SESSION["provincia"]) && isset($_SESSION["alimentazione"]) && isset($_SESSION["prezzo"])){
     $option = array( 
     array($telegram->buildInlineKeyBoardButton("Visualizza Auto", $url="https://annunciautobot.herokuapp.com/cerca.php?marca=".$_SESSION["marca"]."&modello=".$_SESSION["modello"]."&regione=".$_SESSION["regione"]."&provincia=".$_SESSION["provincia"]."&alimentazione".$_SESSION["alimentazione"]."=&prezzo=".$_SESSION["prezzo"], $callback_data="eseguiricerca", $switch_inline_query=true, $switch_inline_query_current_chat=null)));
