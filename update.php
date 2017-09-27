@@ -29,8 +29,6 @@ Parametri($text, $chat_id);
 
 
 $questions = setParametri();
-$var=true;
-
 
 if($data >= 4 && $data <= 13){
 $saluto = "Buongiorno ";
@@ -49,8 +47,8 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
      $_SESSION["$i"]++;
 } elseif($text === "no" && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
-} elseif($var == true){
-   $_SESSION["$i"]--;
+} elseif($text === "si" && (intval($_SESSION["$i"])%2 != 0)){
+    $_SESSION["$i"]--;
 }
 
 if(isset($_SESSION["regione"])){
@@ -85,7 +83,6 @@ $keyb = $telegram->buildInlineKeyBoard($option);
 }
 if ($text === "/start" || $text === "/nuova_ricerca" || $callback_query["data"] === "new" || (!isset($_SESSION["marca"]) && !isset($_SESSION["modello"]) && !isset($_SESSION["regione"]) && !isset($_SESSION["provincia"]) && !isset($_SESSION["alimentazione"]) && !isset($_SESSION["prezzo"]))){
         $_SESSION["$i"]=0;
-$var=false;
     $content = array('chat_id' => $chat_id, 'text' => $saluto.$username."! Inserisci l'auto da cercare");
 } else {
 $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Stai Cercando:"."\n".ucfirst($_SESSION["marca"])." ".ucfirst($_SESSION["modello"])." ".$regione." ".$provincia." ".$alimentazione." ".$prezzo."\n"."_._._._._._._._._._._"."\nIn base alle tue richieste ho trovato ".$_SESSION['count']."  annunci"."\n"."_._._._._._._._._._._\n".$_SESSION['total_elements'][$_SESSION["$i"]]);
