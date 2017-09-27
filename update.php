@@ -29,7 +29,6 @@ Parametri($text, $chat_id);
 
 
 $questions = setParametri();
-$_SESSION["$i"]=0;
 
 if($data >= 4 && $data <= 13){
 $saluto = "Buongiorno ";
@@ -48,8 +47,8 @@ if($callback_query["data"] === "new" || $text === "/nuova_ricerca"){
      $_SESSION["$i"]++;
 } elseif($text === "no" && (intval($_SESSION["$i"])%2 == 0)){
     $_SESSION["$i"] = $_SESSION["$i"] + 2;
-} elseif($text === "si" && (intval($_SESSION["$i"])%2 != 0)){
-    $_SESSION["$i"]--;
+} elseif(intval($_SESSION["$i"])%2 != 0){
+        $_SESSION["$i"]--;
 }
 
 if(isset($_SESSION["regione"])){
