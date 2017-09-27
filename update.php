@@ -29,6 +29,7 @@ Parametri($text, $chat_id);
 
 
 $questions = setParametri();
+$_SESSION["$i"]=0;
 
 if($data >= 4 && $data <= 13){
 $saluto = "Buongiorno ";
