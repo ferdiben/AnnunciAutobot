@@ -2,7 +2,7 @@
 
 // PARAMETRI DA MODIFICARE
 $WEBHOOK_URL = 'https://annunciautobot.herokuapp.com/update.php';
-$BOT_TOKEN = '323852343:AAH5AZvSM5ceC60KSKIFVV-dHzHQgA7JnJg';
+$BOT_TOKEN = '967441932:AAF4ApETfl-uP5SdnaT98cDDNBg9LEgO8Gw';
 
 // NON APPORTARE MODIFICHE NEL CODICE SEGUENTE
 $API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
